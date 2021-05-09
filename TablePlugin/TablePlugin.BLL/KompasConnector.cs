@@ -36,7 +36,7 @@ namespace TablePlugin.BLL
         /// </summary>
         public void GetNewPart()
         {
-            var ksDoc = KsObject.Document3D();
+            dynamic ksDoc = KsObject.Document3D();
             ksDoc.Create(false, true);
             Part = ksDoc.GetPart((short)Part_Type.pTop_Part);
         }
