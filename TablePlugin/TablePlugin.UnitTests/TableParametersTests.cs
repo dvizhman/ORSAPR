@@ -35,12 +35,10 @@ namespace TablePlugin.UnitTests
             SetCorrectParameters(parameters);
             var top = parameters.TableTop;
             var legs = parameters.TabLegs;
-//            var hole = parameters.TableHole;
 
             // Assert
             Assert.NotNull(top);
             Assert.NotNull(legs);
-//            Assert.NotNull(hole);
         }
 
         /// <summary>
@@ -64,31 +62,6 @@ namespace TablePlugin.UnitTests
             }
         }
 
-/*        /// <summary>
-        /// Тест на присваивание неправильных значений в поля структуры TableHoleParameters. Негативный тест. 
-        /// </summary>
-        /// <param name="value">Присваиваемое значение.</param>
-        /// <param name="parameter">В какой параметр будет присваиваться значение.</param>
-        [TestCase(25.05d, "Radius", TestName = "Тестирование присваивания {0} в TableHoleParameters.{1}. Негативный тест.")]
-        [TestCase(900.05d, "ParamX", TestName = "Тестирование присваивания {0} в TableHoleParameters.{1}. Негативный тест.")]
-        [TestCase(400.05d, "ParamY",TestName = "Тестирование присваивания {0} в TableHoleParameters.{1}. Негативный тест.")]
-        [TestCase(-1, "Radius", TestName = "Тестирование присваивания {0} в TableHoleParameters.{1}. Негативный тест.")]
-        [TestCase(-1, "ParamX", TestName = "Тестирование присваивания {0} в TableHoleParameters.{1}. Негативный тест.")]
-        [TestCase(-1, "ParamY", TestName = "Тестирование присваивания {0} в TableHoleParameters.{1}. Негативный тест.")]
-        public void TableHoleParameters_WrongArgument_ThrowsExceptionResult(double value, string parameter)
-        {
-            // SetUp
-            var parameters = new TableHoleParameters();
-
-            // Assert
-            Assert.Throws<ArgumentException>(() =>
-            {
-                // Act
-                parameters.Radius = parameter == "Radius" ? value : 25;
-                parameters.ParamX = parameter == "ParamX" ? value : 900;
-                parameters.ParamY = parameter == "ParamY" ? value : 400;
-            }, $"Ошибка присвоения неправильного значения в поле TableHoleParameters.{parameter}");
-*/
         /// <summary>
         /// Тест на присваивание неправильных значений в поля структуры TableTopParameters. Негативный тест. 
         /// </summary>
@@ -151,10 +124,7 @@ namespace TablePlugin.UnitTests
         [TestCase(500, ParametersType.TableLegsHeight, TestName = "Тестирование присваивания {0} в TableParameters.TableLegs.{1}. Негативный тест.")]
         [TestCase(3, ParametersType.TableLegsNumber, TestName = "Тестирование присваивания {0} в TableParameters.TableLegs.{1}. Негативный тест.")]
         [TestCase(30, ParametersType.TableLegsDiameter, TestName = "Тестирование присваивания {0} в TableParameters.TableLegs.{1}. Негативный тест.")]
-/*        [TestCase(10, ParametersType.HoleRadius, TestName = "Тестирование присваивания {0} в TableParameters.TableHole.{1}. Негативный тест.")]
-        [TestCase(110, ParametersType.HoleParamX, TestName = "Тестирование присваивания {0} в TableParameters.TableHole.{1}. Негативный тест.")]
-        [TestCase(80, ParametersType.HoleParamY, TestName = "Тестирование присваивания {0} в TableParameters.TableHole.{1}. Негативный тест.")]
-*/        public void TableParameters_WrongArgument_ThrowsExceptionResult(double value,  ParametersType parameter)
+        public void TableParameters_WrongArgument_ThrowsExceptionResult(double value,  ParametersType parameter)
         {
             // SetUp
             var parameters = new TableParameters();
@@ -178,13 +148,6 @@ namespace TablePlugin.UnitTests
                     Value = parameter == ParametersType.TableLegsDiameter ? value : 50,
                 };
 
-/*                parameters.TableHole = new TableHoleParameters
-                {
-                    Radius = parameter == ParametersType.HoleRadius ? value : 25,
-                    ParamX = parameter == ParametersType.HoleParamX ? value : 900,
-                    ParamY = parameter == ParametersType.HoleParamY ? value : 400,
-                };
-*/
             }, $"Значение '{addInfo.Name}' должно быть в диапозоне от {addInfo.Min} до {addInfo.Max}." );
         }
        
@@ -217,39 +180,7 @@ namespace TablePlugin.UnitTests
                 
             }, "Значение 'Количество ножек' должно быть в диапозоне от 5 до 5." );
         }
-/*
-        /// <summary>
-        /// Тест на вырезание отверстия в недопустимом диапозоне. Негативный тест.
-        /// </summary>
-        /// <param name="value">Присваиваемое значение.</param>
-        /// <param name="parameter">Параметр.</param>
-        /// <param name="name">Имя поля.</param>
-        /// <param name="range">Диапозон.</param>
-        [TestCase(1000, ParametersType.HoleParamX, "Расстояние по длине", new[] { 935, 1065 })]
-        [TestCase(350, ParametersType.HoleParamY, "Расстояние по ширине", new[] { 285, 415 })]
-        public void TableParameters_WrongCoordinates_ThrowsExceptionResult(double value, ParametersType parameter, string name, int[] range)
-        {
-            // SetUp
-            var parameters = new TableParameters
-            {
-                TableTop = new TableTopParameters { Length = 2000, Width = 700, Height = 40, },
-                TabLegs = new TableLegsParameters { Height = 650, Number = 5, Value = 50, }
-            };
 
-            // Assert
-            Assert.Throws<ArgumentException>(() =>
-            {
-                // Act
-                parameters.TableHole = new TableHoleParameters
-                {
-                    Radius = 20,
-                    ParamX = parameter == ParametersType.HoleParamX ? value : 1200,
-                    ParamY = parameter == ParametersType.HoleParamY ? value : 250,
-                };
-
-            }, $"Значение '{name}' не должно пересекать диапозоне от {range[0]} до {range[1]}.");
-        }
-*/
         private static void SetCorrectParameters(TableParameters parameters)
         {
             parameters.TableTop = new TableTopParameters
@@ -267,13 +198,6 @@ namespace TablePlugin.UnitTests
                 Value = 50
             };
 
-  /*          parameters.TableHole = new TableHoleParameters
-            {
-                Radius = 25,
-                ParamX = 900,
-                ParamY = 400
-            };
-  */
         }
     }
 }

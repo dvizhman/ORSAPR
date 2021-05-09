@@ -39,7 +39,6 @@ namespace TablePlugin.BLL
 
             CreateTopTable();
             CreateTableLegs();
- //           CreateHole();
         }
 
         /// <summary>
@@ -148,26 +147,6 @@ namespace TablePlugin.BLL
             PressOutSketch(sketchDef, _parameters.TabLegs.Height, side: false);
         }
 
-/*        /// <summary>
-        /// Метод для вырезания отверстия в столешнице.
-        /// </summary>
-        private void CreateHole()
-        {
-            // Создаем эскиз.
-            var sketchDef = CreateSketch(Obj3dType.o3d_planeXOY);
-            var doc2D = (ksDocument2D)sketchDef.BeginEdit();
-
-            // Создаем окружность.
-            var param = _parameters.TableHole;
-            doc2D.ksCircle(param.ParamX, param.ParamY, param.Radius, 1);
-
-            // Конец редактирования эскиза.
-            sketchDef.EndEdit();
-
-            // Вырезать выдавливанием.
-            PressOutSketch(sketchDef, _parameters.TableTop.Height, ksObj3dTypeEnum.o3d_cutExtrusion, false);
-        }
-*/
         /// <summary>
         /// Действие выдавливания по эскизу.
         /// </summary>
