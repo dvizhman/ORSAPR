@@ -11,7 +11,6 @@ namespace TablePlugin.BLL.Models
     public class TableParameters
     {
         private TableTopParameters _tableTop;
-        private TableHoleParameters _tableHole;
         private TableLegsParameters _tableLegs;
 
         /// <summary>
@@ -22,9 +21,6 @@ namespace TablePlugin.BLL.Models
             { ParametersType.TableTopLength, new AdditionalParameters { Min = 1000, Max = 2000, Name = "Длина столешницы" } },
             { ParametersType.TableTopWidth, new AdditionalParameters { Min = 600, Max = 800, Name = "Ширина столешницы" } },
             { ParametersType.TableTopHeight, new AdditionalParameters { Min = 30, Max = 40, Name = "Высота столешницы" } },
-            { ParametersType.HoleParamX, new AdditionalParameters { Min = 120, Max = 1870, Name = "Расстояние по длине" } },
-            { ParametersType.HoleParamY, new AdditionalParameters { Min = 90, Max = 700, Name = "Расстояние по ширине" } },
-            { ParametersType.HoleRadius, new AdditionalParameters { Min = 20, Max = 30, Name = "Радиус отверстия" } },
             { ParametersType.TableLegsHeight, new AdditionalParameters { Min = 600, Max = 700, Name = "Высота ножек" } },
             { ParametersType.TableLegsNumber, new AdditionalParameters { Min = 4, Max = 5, Name = "Количество ножек" } },
             { ParametersType.TableLegsDiameter, new AdditionalParameters { Min = 40, Max = 60, Name = "Диаметр основания ножек" } },
@@ -47,45 +43,6 @@ namespace TablePlugin.BLL.Models
                 });
 
                 _tableTop = value;
-            }
-        }
-
-        /// <summary>
-        /// Параметры отверстия в столешнице.
-        /// </summary>
-        public TableHoleParameters TableHole
-        {
-            get => _tableHole;
-            set
-            {
-                var additionalParamX = _additionalParameters.FirstOrDefault(x => x.Key == ParametersType.HoleParamX).Value;
-                var additionalParamY = _additionalParameters.FirstOrDefault(x => x.Key == ParametersType.HoleParamY).Value;
-
-                additionalParamX.Max = _tableTop.Length - value.Radius - 100;
-                additionalParamX.Min = value.Radius + 100;
-
-                additionalParamY.Max = _tableTop.Width - value.Radius - 70;
-                additionalParamY.Min = value.Radius + 70;
-
-                CheckRangeOfValues(new Dictionary<ParametersType, double>
-                {
-                    { ParametersType.HoleRadius, value.Radius },
-                    { ParametersType.HoleParamX, value.ParamX },
-                    { ParametersType.HoleParamY, value.ParamY },
-                });
-
-                if (_tableLegs.Number == 5 || Math.Abs(_tableTop.Length - 2000d) < 0.001)
-                { 
-                    var leftX = (_tableTop.Length / 2) - (_tableLegs.Value / 2) - value.Radius - 20;
-                    var rightX = (_tableTop.Length / 2) + (_tableLegs.Value / 2) + value.Radius + 20;
-                    var leftY = (_tableTop.Width / 2) - (_tableLegs.Value / 2) - value.Radius - 20;
-                    var rightY = (_tableTop.Width / 2) + (_tableLegs.Value / 2) + value.Radius + 20;
-
-                    CheckCrossingOfRange(leftX, rightX, value.ParamX, "Расстояние по длине");
-                    CheckCrossingOfRange(leftY, rightY, value.ParamY, "Расстояние по ширине");
-                }
-
-                _tableHole = value;
             }
         }
 

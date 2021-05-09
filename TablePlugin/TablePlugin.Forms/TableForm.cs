@@ -19,7 +19,7 @@ namespace TablePlugin.Forms
         public TableForm()
         {
             InitializeComponent();
-            ChangeFormLocation(true);
+//            ChangeFormLocation(true);
             LegsTypeComboBox.SelectedIndex = 0;
         }
 
@@ -46,7 +46,7 @@ namespace TablePlugin.Forms
                     Value = (double) SizeValue.Value
                 };
 
-                if (checkHole.Checked)
+/*               if (checkHole.Checked)
                 {
                     parameters.TableHole = new TableHoleParameters
                     {
@@ -55,7 +55,7 @@ namespace TablePlugin.Forms
                         ParamY = (double)holeParamY.Value
                     };
                 }
-
+*/
                 _builder = _builder ?? new TableBuilder();
                 _builder.Build(parameters);
             }
@@ -65,7 +65,7 @@ namespace TablePlugin.Forms
             }
         }
 
-        /// <summary>
+/*       /// <summary>
         /// Обработчик чекбокса "Скозное отверстие".
         /// </summary>
         private void CheckHole_CheckedChanged(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace TablePlugin.Forms
             ChangeFormLocation(!checkHole.Checked);   
             groupBox3.Visible = checkHole.Checked;
         }
-
+*/
         /// <summary>
         /// Обработчик комбобокса "Тип ножек"
         /// </summary>
@@ -90,7 +90,7 @@ namespace TablePlugin.Forms
             }
         }
 
-        /// <summary>
+ /*       /// <summary>
         /// Метод для изменении верстки при скрытии groupBox.
         /// </summary>
         /// <param name="turnOff">Скрыть элемент.</param>
@@ -112,7 +112,7 @@ namespace TablePlugin.Forms
                 this.Size = new Size(this.Size.Width, this.Size.Height + changedSize);
             }
         }
-
+*/
         /// <summary>
         /// Обработчик кнопки "Минимумы".
         /// </summary>
@@ -138,10 +138,10 @@ namespace TablePlugin.Forms
             tableTopWidth.Value = 700m;
             tableTopHeight.Value = 35m;
 
-            holeRadius.Value = 25m;
+/*            holeRadius.Value = 25m;
             holeParamX.Value = 900m;
             holeParamY.Value = 400m;
-
+*/
             tableLegsHeight.Value = 650m;
             tableLegsNumber.Value = 4m;
             SizeValue.Value = 50m;
@@ -160,15 +160,25 @@ namespace TablePlugin.Forms
             tableTopWidth.Value = (decimal)limits.Where(x => x.Key == ParametersType.TableTopWidth).Select(predicate).FirstOrDefault();
             tableTopHeight.Value = (decimal)limits.Where(x => x.Key == ParametersType.TableTopHeight).Select(predicate).FirstOrDefault();
 
-            holeRadius.Value = (decimal)limits.Where(x => x.Key == ParametersType.HoleRadius).Select(predicate).FirstOrDefault();
+/*           holeRadius.Value = (decimal)limits.Where(x => x.Key == ParametersType.HoleRadius).Select(predicate).FirstOrDefault();
             holeParamX.Value = (decimal)limits.Where(x => x.Key == ParametersType.HoleParamX).Select(predicate).FirstOrDefault();
             holeParamY.Value = (decimal)limits.Where(x => x.Key == ParametersType.HoleParamY).Select(predicate).FirstOrDefault();
-
+*/
             tableLegsHeight.Value = (decimal)limits.Where(x => x.Key == ParametersType.TableLegsHeight).Select(predicate).FirstOrDefault();
             tableLegsNumber.Value = (decimal)limits.Where(x => x.Key == ParametersType.TableLegsNumber).Select(predicate).FirstOrDefault();
             SizeValue.Value = LegsTypeComboBox.SelectedIndex == 0
                 ? (decimal)limits.Where(x => x.Key == ParametersType.TableLegsDiameter).Select(predicate).FirstOrDefault()
                 : (decimal)limits.Where(x => x.Key == ParametersType.TableLegsSideLength).Select(predicate).FirstOrDefault();
+        }
+
+        private void TableForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
