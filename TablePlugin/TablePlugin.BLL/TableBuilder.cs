@@ -11,7 +11,14 @@ namespace TablePlugin.BLL
     /// </summary>
     public class TableBuilder
     {
+        /// <summary>
+        /// Коннектор для работы с Компас3D.
+        /// </summary>
         private KompasConnector _connector;
+
+        /// <summary>
+        /// Параметры стола.
+        /// </summary>
         private TableParameters _parameters;
 
         /// <summary>
@@ -30,11 +37,14 @@ namespace TablePlugin.BLL
                 _connector.GetNewPart();
             }
 
-            this.CreateTopTable();
-            this.CreateTableLegs();
-            this.CreateHole();
+            CreateTopTable();
+            CreateTableLegs();
+            CreateHole();
         }
 
+        /// <summary>
+        /// Метод для построения столешницы.
+        /// </summary>
         private void CreateTopTable()
         {
             // Создаем эскиз.
@@ -59,6 +69,9 @@ namespace TablePlugin.BLL
             PressOutSketch(sketchDef, _parameters.TableTop.Height);
         }
 
+        /// <summary>
+        /// Метод для построения ножек стола.
+        /// </summary>
         private void CreateTableLegs()
         {
             // Создаем эскиз.
@@ -132,9 +145,12 @@ namespace TablePlugin.BLL
             sketchDef.EndEdit();
 
             // Выдавить
-            PressOutSketch(sketchDef, _parameters.TabLegs.Height, false);
+            PressOutSketch(sketchDef, _parameters.TabLegs.Height, side: false);
         }
 
+        /// <summary>
+        /// Метод для вырезания отверстия в столешнице.
+        /// </summary>
         private void CreateHole()
         {
             // Создаем эскиз.
@@ -149,32 +165,44 @@ namespace TablePlugin.BLL
             sketchDef.EndEdit();
 
             // Вырезать выдавливанием.
-            PressOutSketch(sketchDef, _parameters.TableTop.Height);
+            PressOutSketch(sketchDef, _parameters.TableTop.Height, ksObj3dTypeEnum.o3d_cutExtrusion, false);
         }
 
         /// <summary>
         /// Действие выдавливания по эскизу.
         /// </summary>
-        /// <param name="sketchDef">Эскиз.</param>
+        /// <param name="sketchDef">Эскиз.</param>f
         /// <param name="height">Высота выдавливание.</param>
+        /// <param name="type">Тип выдавливания.</param>
         /// <param name="side">Направление выдаливания.</param>
-        private void PressOutSketch(ksSketchDefinition sketchDef, double height, bool side = true)
+        private void PressOutSketch(ksSketchDefinition sketchDef, double height, ksObj3dTypeEnum type = ksObj3dTypeEnum.o3d_bossExtrusion, bool side = true)
         {
-            // Выдавливание
-            var iBaseExtrusionEntity = (ksEntity)_connector.Part.NewEntity((short)ksObj3dTypeEnum.o3d_bossExtrusion);
+            // Выдавливание по типу
+            var extrusionEntity = (ksEntity)_connector.Part.NewEntity((short)type);
+
             // интерфейс свойств базовой операции выдавливания
-            var iBaseExtrusionDef = (ksBossExtrusionDefinition)iBaseExtrusionEntity.GetDefinition();
+            if (type == ksObj3dTypeEnum.o3d_bossExtrusion)
+            {
+                var extrusionDef = (ksBossExtrusionDefinition)extrusionEntity.GetDefinition();
+                extrusionDef.SetSideParam(side, (short)End_Type.etBlind, height);
+                extrusionDef.directionType = side ? (short)Direction_Type.dtNormal : (short)Direction_Type.dtReverse;
 
-            iBaseExtrusionDef.SetSideParam(side, (short)End_Type.etBlind, height);
-            iBaseExtrusionDef.directionType = side ? (short)Direction_Type.dtNormal : (short)Direction_Type.dtReverse;
-            iBaseExtrusionDef.chooseType = (short) Obj3dType.o3d_cutExtrusion;
+                // эскиз операции выдавливания
+                extrusionDef.SetSketch(sketchDef);
+            }
+            else if (type == ksObj3dTypeEnum.o3d_cutExtrusion)
+            { 
+                var extrusionDef = (ksCutExtrusionDefinition)extrusionEntity.GetDefinition();
+                extrusionDef.SetSideParam(side, (short)End_Type.etBlind, height);
+                extrusionDef.directionType = side ? (short)Direction_Type.dtNormal : (short)Direction_Type.dtReverse;
 
-            // эскиз операции выдавливания
-            iBaseExtrusionDef.SetSketch(sketchDef);
+                // эскиз операции вырезания по выдавливанию
+                extrusionDef.SetSketch(sketchDef);
+            }
+
             // создать операцию
-            iBaseExtrusionEntity.Create();
+            extrusionEntity.Create();
         }
-
 
         /// <summary>
         /// Создание эскиза.

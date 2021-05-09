@@ -1,63 +1,57 @@
 ﻿using System;
-using TablePlugin.BLL.Enums;
 
 namespace TablePlugin.BLL.Models
 {
     /// <summary>
-    /// Параметры ножек стола.
+    /// Параметры столешницы.
     /// </summary>
-    public struct TableLegsParameters
+    public struct TableTopParameters
     {
-        private int _number;
+        private double _length;
+        private double _width;
         private double _height;
-        private double _value;
 
         /// <summary>
-        /// Высота ножек.
+        /// Длина столешницы.
+        /// </summary>
+        public double Length
+        {
+            get => _length;
+            set
+            {
+                ValidateValue(value, "Длина столешницы");
+                _length = Math.Truncate(value);
+            }
+        }
+
+        /// <summary>
+        /// Ширина столешницы.
+        /// </summary>
+        public double Width
+        {
+            get => _width;
+            set
+            {
+                ValidateValue(value, "Ширина столешницы");
+                _width = Math.Truncate(value);
+            }
+        }
+
+        /// <summary>
+        /// Высота столешницы.
         /// </summary>
         public double Height
         {
             get => _height;
             set
             {
-                ValidateValue(value, "Высота ножек");
+                ValidateValue(value, "Высота столешницы");
                 _height = Math.Truncate(value);
             }
         }
 
         /// <summary>
-        /// Количество ножек.
-        /// </summary>
-        public int Number
-        {
-            get => _number;
-            set
-            {
-                ValidateValue(value, "Количество ножек");
-                _number = value;
-            }
-        }
-
-        /// <summary>
-        /// Тип ножек.
-        /// </summary>
-        public LegsType Type { get; set; }
-
-        /// <summary>
-        /// Значние размера основания ножек.
-        /// </summary>
-        public double Value
-        {
-            get => _value;
-            set
-            {
-                ValidateValue(value, "Размер основания");
-                _value = Math.Truncate(value);
-            } 
-        }
-
-        /// <summary>
-        /// Проверка присваиваемого значения на double.
+        /// Проверка присваиваемого значения.
         /// </summary>
         /// <param name="value">Присваиваемая переменная.</param>
         /// <param name="name">Имя параметра.</param>
@@ -72,11 +66,11 @@ namespace TablePlugin.BLL.Models
             {
                 throw new ArgumentException($"Значение поля '{name}' не может быть дробным");
             }
-            
+
             if (value <= 0)
             {
                 throw new ArgumentException($"{name} не может быть меньше или равна нулю!");
             }
         }
-    }
+    } 
 }
