@@ -24,8 +24,8 @@ namespace TablePlugin.Forms
         #region Код, автоматически созданный конструктором форм Windows
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -33,14 +33,14 @@ namespace TablePlugin.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.topGroupBox = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.tableTopHeight = new System.Windows.Forms.NumericUpDown();
             this.tableTopWidth = new System.Windows.Forms.NumericUpDown();
             this.tableTopLength = new System.Windows.Forms.NumericUpDown();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ledsGroupBox = new System.Windows.Forms.GroupBox();
             this.LegsTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -54,22 +54,22 @@ namespace TablePlugin.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.SetMinButton = new System.Windows.Forms.Button();
             this.SetMaxButton = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonGroupBox = new System.Windows.Forms.GroupBox();
             this.DefaultButton = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.topGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopLength)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.ledsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SizeValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsHeight)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.buttonGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // BuildButton
             // 
-            this.BuildButton.Location = new System.Drawing.Point(246, 325);
+            this.BuildButton.Location = new System.Drawing.Point(246, 328);
             this.BuildButton.Margin = new System.Windows.Forms.Padding(4);
             this.BuildButton.Name = "BuildButton";
             this.BuildButton.Size = new System.Drawing.Size(200, 60);
@@ -108,26 +108,26 @@ namespace TablePlugin.Forms
             this.label3.TabIndex = 6;
             this.label3.Text = "Высота";
             // 
-            // groupBox1
+            // topGroupBox
             // 
-            this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.tableTopHeight);
-            this.groupBox1.Controls.Add(this.tableTopWidth);
-            this.groupBox1.Controls.Add(this.tableTopLength);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(655, 98);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Столешница";
+            this.topGroupBox.AutoSize = true;
+            this.topGroupBox.Controls.Add(this.label13);
+            this.topGroupBox.Controls.Add(this.label12);
+            this.topGroupBox.Controls.Add(this.label11);
+            this.topGroupBox.Controls.Add(this.tableTopHeight);
+            this.topGroupBox.Controls.Add(this.tableTopWidth);
+            this.topGroupBox.Controls.Add(this.tableTopLength);
+            this.topGroupBox.Controls.Add(this.label3);
+            this.topGroupBox.Controls.Add(this.label2);
+            this.topGroupBox.Controls.Add(this.label1);
+            this.topGroupBox.Location = new System.Drawing.Point(15, 15);
+            this.topGroupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.topGroupBox.Name = "topGroupBox";
+            this.topGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.topGroupBox.Size = new System.Drawing.Size(655, 109);
+            this.topGroupBox.TabIndex = 12;
+            this.topGroupBox.TabStop = false;
+            this.topGroupBox.Text = "Столешница";
             // 
             // label13
             // 
@@ -231,28 +231,27 @@ namespace TablePlugin.Forms
             0,
             0});
             // 
-            // groupBox2
+            // ledsGroupBox
             // 
-            this.groupBox2.Controls.Add(this.LegsTypeComboBox);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.tableLegsNumber);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.SizeValue);
-            this.groupBox2.Controls.Add(this.tableLegsHeight);
-            this.groupBox2.Controls.Add(this.NameOfSize);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(15, 127);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(431, 175);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Ножки";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.ledsGroupBox.Controls.Add(this.LegsTypeComboBox);
+            this.ledsGroupBox.Controls.Add(this.label18);
+            this.ledsGroupBox.Controls.Add(this.label17);
+            this.ledsGroupBox.Controls.Add(this.tableLegsNumber);
+            this.ledsGroupBox.Controls.Add(this.label14);
+            this.ledsGroupBox.Controls.Add(this.SizeValue);
+            this.ledsGroupBox.Controls.Add(this.tableLegsHeight);
+            this.ledsGroupBox.Controls.Add(this.NameOfSize);
+            this.ledsGroupBox.Controls.Add(this.label8);
+            this.ledsGroupBox.Controls.Add(this.label7);
+            this.ledsGroupBox.Controls.Add(this.label6);
+            this.ledsGroupBox.Location = new System.Drawing.Point(15, 132);
+            this.ledsGroupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.ledsGroupBox.Name = "ledsGroupBox";
+            this.ledsGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.ledsGroupBox.Size = new System.Drawing.Size(431, 175);
+            this.ledsGroupBox.TabIndex = 13;
+            this.ledsGroupBox.TabStop = false;
+            this.ledsGroupBox.Text = "Ножки";
             // 
             // LegsTypeComboBox
             // 
@@ -431,19 +430,19 @@ namespace TablePlugin.Forms
             this.SetMaxButton.UseVisualStyleBackColor = true;
             this.SetMaxButton.Click += new System.EventHandler(this.SetMaxButton_Click);
             // 
-            // groupBox4
+            // buttonGroupBox
             // 
-            this.groupBox4.Controls.Add(this.DefaultButton);
-            this.groupBox4.Controls.Add(this.SetMinButton);
-            this.groupBox4.Controls.Add(this.SetMaxButton);
-            this.groupBox4.Location = new System.Drawing.Point(461, 127);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(209, 175);
-            this.groupBox4.TabIndex = 16;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Параметры по умолчанию";
+            this.buttonGroupBox.Controls.Add(this.DefaultButton);
+            this.buttonGroupBox.Controls.Add(this.SetMinButton);
+            this.buttonGroupBox.Controls.Add(this.SetMaxButton);
+            this.buttonGroupBox.Location = new System.Drawing.Point(461, 132);
+            this.buttonGroupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonGroupBox.Name = "buttonGroupBox";
+            this.buttonGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.buttonGroupBox.Size = new System.Drawing.Size(209, 175);
+            this.buttonGroupBox.TabIndex = 16;
+            this.buttonGroupBox.TabStop = false;
+            this.buttonGroupBox.Text = "Параметры по умолчанию";
             // 
             // DefaultButton
             // 
@@ -460,26 +459,25 @@ namespace TablePlugin.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 412);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(683, 410);
+            this.Controls.Add(this.buttonGroupBox);
+            this.Controls.Add(this.ledsGroupBox);
+            this.Controls.Add(this.topGroupBox);
             this.Controls.Add(this.BuildButton);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TableForm";
             this.Text = "TablePlugin";
-            this.Load += new System.EventHandler(this.TableForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.topGroupBox.ResumeLayout(false);
+            this.topGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopLength)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.ledsGroupBox.ResumeLayout(false);
+            this.ledsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SizeValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsHeight)).EndInit();
-            this.groupBox4.ResumeLayout(false);
+            this.buttonGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,8 +489,8 @@ namespace TablePlugin.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox topGroupBox;
+        private System.Windows.Forms.GroupBox ledsGroupBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label NameOfSize;
@@ -512,7 +510,7 @@ namespace TablePlugin.Forms
         private System.Windows.Forms.Button SetMinButton;
         private System.Windows.Forms.Button SetMaxButton;
         private System.Windows.Forms.ComboBox LegsTypeComboBox;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox buttonGroupBox;
         private System.Windows.Forms.Button DefaultButton;
     }
 }

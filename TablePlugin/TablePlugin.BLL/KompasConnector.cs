@@ -11,7 +11,7 @@ namespace TablePlugin.BLL
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="KompasConnector"/> class.
-        /// </summary
+        /// </summary>
         public KompasConnector()
         {
 			KsObject = (KompasObject)Activator.CreateInstance(Type.GetTypeFromProgID("KOMPAS.Application.5"));
@@ -24,7 +24,7 @@ namespace TablePlugin.BLL
         /// <summary>
         /// Интерфейс API Компаc3D.
         /// </summary>
-		public KompasObject KsObject { get; set; }
+		public KompasObject KsObject { get; }
 
         /// <summary>
         /// Интерфейс компонента Компас3D.
@@ -36,7 +36,7 @@ namespace TablePlugin.BLL
         /// </summary>
         public void GetNewPart()
         {
-            dynamic ksDoc = KsObject.Document3D();
+            var ksDoc = KsObject.Document3D();
             ksDoc.Create(false, true);
             Part = ksDoc.GetPart((short)Part_Type.pTop_Part);
         }

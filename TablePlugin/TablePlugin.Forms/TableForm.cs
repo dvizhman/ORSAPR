@@ -11,6 +11,9 @@ namespace TablePlugin.Forms
 {
     public partial class TableForm : Form
     {
+        /// <summary>
+        /// Объект для построения 3D Модели.
+        /// </summary>
         private TableBuilder _builder;
 
         /// <summary>
@@ -103,31 +106,46 @@ namespace TablePlugin.Forms
         /// <summary>
         /// Метод для установки значений минимума и максимума для полей формы.
         /// </summary>
-        /// <param name="predicate">Предикат.</param>
-        private void SetMinMaxParameters(Func<KeyValuePair<ParametersType, AdditionalParameters>, double> predicate)
+        /// <param name="expression">Лямбда-выражение.</param>
+        private void SetMinMaxParameters(Func<KeyValuePair<ParametersType, AdditionalParameters>, double> expression)
         {
             var parameters = new TableParameters();
             var limits = parameters.AdditionalParameters;
 
-            tableTopLength.Value = (decimal)limits.Where(x => x.Key == ParametersType.TableTopLength).Select(predicate).FirstOrDefault();
-            tableTopWidth.Value = (decimal)limits.Where(x => x.Key == ParametersType.TableTopWidth).Select(predicate).FirstOrDefault();
-            tableTopHeight.Value = (decimal)limits.Where(x => x.Key == ParametersType.TableTopHeight).Select(predicate).FirstOrDefault();
+            tableTopLength.Value = (decimal)limits
+                .Where(x => x.Key == ParametersType.TableTopLength)
+                .Select(expression)
+                .FirstOrDefault();
 
-            tableLegsHeight.Value = (decimal)limits.Where(x => x.Key == ParametersType.TableLegsHeight).Select(predicate).FirstOrDefault();
-            tableLegsNumber.Value = (decimal)limits.Where(x => x.Key == ParametersType.TableLegsNumber).Select(predicate).FirstOrDefault();
+            tableTopWidth.Value = (decimal) limits
+                .Where(x => x.Key == ParametersType.TableTopWidth)
+                .Select(expression)
+                .FirstOrDefault();
+            
+            tableTopHeight.Value = (decimal) limits
+                .Where(x => x.Key == ParametersType.TableTopHeight)
+                .Select(expression)
+                .FirstOrDefault();
+
+            tableLegsHeight.Value = (decimal) limits
+                .Where(x => x.Key == ParametersType.TableLegsHeight)
+                .Select(expression)
+                .FirstOrDefault();
+            
+            tableLegsNumber.Value = (decimal) limits
+                .Where(x => x.Key == ParametersType.TableLegsNumber)
+                .Select(expression)
+                .FirstOrDefault();
+            
             SizeValue.Value = LegsTypeComboBox.SelectedIndex == 0
-                ? (decimal)limits.Where(x => x.Key == ParametersType.TableLegsDiameter).Select(predicate).FirstOrDefault()
-                : (decimal)limits.Where(x => x.Key == ParametersType.TableLegsSideLength).Select(predicate).FirstOrDefault();
-        }
-
-        private void TableForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
+                ? (decimal) limits
+                    .Where(x => x.Key == ParametersType.TableLegsDiameter)
+                    .Select(expression)
+                    .FirstOrDefault()
+                : (decimal)limits
+                    .Where(x => x.Key == ParametersType.TableLegsSideLength)
+                    .Select(expression)
+                    .FirstOrDefault();
         }
     }
 }

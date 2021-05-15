@@ -6,6 +6,9 @@ using TablePlugin.BLL.Models;
 
 namespace TablePlugin.UnitTests
 {
+    /// <summary>
+    /// Тесты для проверки TableParameters.
+    /// </summary>
     [TestFixture]
     public class TableParametersTests
     {
@@ -61,6 +64,7 @@ namespace TablePlugin.UnitTests
                 Assert.NotNull(p.Value);
             }
         }
+
 
         /// <summary>
         /// Тест на присваивание неправильных значений в поля структуры TableTopParameters. Негативный тест. 
@@ -147,7 +151,6 @@ namespace TablePlugin.UnitTests
                     Number = parameter == ParametersType.TableLegsNumber ?  (int) value : 4,
                     Value = parameter == ParametersType.TableLegsDiameter ? value : 50,
                 };
-
             }, $"Значение '{addInfo.Name}' должно быть в диапозоне от {addInfo.Min} до {addInfo.Max}." );
         }
        
@@ -180,7 +183,43 @@ namespace TablePlugin.UnitTests
                 
             }, "Значение 'Количество ножек' должно быть в диапозоне от 5 до 5." );
         }
+/*
+        /// <summary>
+        /// Тест на вырезание отверстия в недопустимом диапозоне. Негативный тест.
+        /// </summary>
+        /// <param name="value">Присваиваемое значение.</param>
+        /// <param name="parameter">Параметр.</param>
+        /// <param name="name">Имя поля.</param>
+        /// <param name="range">Диапозон.</param>
+        [TestCase(1000, ParametersType.HoleParamX, "Расстояние по длине", new[] { 935, 1065 })]
+        [TestCase(350, ParametersType.HoleParamY, "Расстояние по ширине", new[] { 285, 415 })]
+        public void TableParameters_WrongCoordinates_ThrowsExceptionResult(double value, ParametersType parameter, string name, int[] range)
+        {
+            // SetUp
+            var parameters = new TableParameters
+            {
+                TableTop = new TableTopParameters { Length = 2000, Width = 700, Height = 40, },
+                TabLegs = new TableLegsParameters { Height = 650, Number = 5, Value = 50, }
+            };
 
+            // Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                // Act
+                parameters.TableHole = new TableHoleParameters
+                {
+                    Radius = 20,
+                    ParamX = parameter == ParametersType.HoleParamX ? value : 1200,
+                    ParamY = parameter == ParametersType.HoleParamY ? value : 250,
+                };
+
+            }, $"Значение '{name}' не должно пересекать диапозоне от {range[0]} до {range[1]}.");
+        }
+*/
+        /// <summary>
+        /// Метод для заполнение параметров объект класса TableParameters.
+        /// </summary>
+        /// <param name="parameters">Объект класса TableParameters</param>
         private static void SetCorrectParameters(TableParameters parameters)
         {
             parameters.TableTop = new TableTopParameters
@@ -197,7 +236,6 @@ namespace TablePlugin.UnitTests
                 Type = LegsType.RoundLegs,
                 Value = 50
             };
-
         }
     }
 }
