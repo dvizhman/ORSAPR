@@ -138,7 +138,8 @@ namespace TablePlugin.Forms
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(67, 17);
             this.label13.TabIndex = 19;
-            this.label13.Text = "30-40 мм";
+            this.label13.Text = "50-80 мм";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // label12
             // 
@@ -149,7 +150,7 @@ namespace TablePlugin.Forms
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 17);
             this.label12.TabIndex = 18;
-            this.label12.Text = "600-800 мм";
+            this.label12.Text = "550-900 мм";
             // 
             // label11
             // 
@@ -158,21 +159,22 @@ namespace TablePlugin.Forms
             this.label11.Location = new System.Drawing.Point(109, 54);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 17);
+            this.label11.Size = new System.Drawing.Size(83, 17);
             this.label11.TabIndex = 17;
-            this.label11.Text = "1000-2000 мм";
+            this.label11.Text = "550-900 мм";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // tableTopHeight
             // 
             this.tableTopHeight.Location = new System.Drawing.Point(444, 47);
             this.tableTopHeight.Margin = new System.Windows.Forms.Padding(4);
             this.tableTopHeight.Maximum = new decimal(new int[] {
-            40,
+            80,
             0,
             0,
             0});
             this.tableTopHeight.Minimum = new decimal(new int[] {
-            30,
+            50,
             0,
             0,
             0});
@@ -180,7 +182,7 @@ namespace TablePlugin.Forms
             this.tableTopHeight.Size = new System.Drawing.Size(85, 22);
             this.tableTopHeight.TabIndex = 14;
             this.tableTopHeight.Value = new decimal(new int[] {
-            35,
+            60,
             0,
             0,
             0});
@@ -190,12 +192,12 @@ namespace TablePlugin.Forms
             this.tableTopWidth.Location = new System.Drawing.Point(236, 49);
             this.tableTopWidth.Margin = new System.Windows.Forms.Padding(4);
             this.tableTopWidth.Maximum = new decimal(new int[] {
-            800,
+            900,
             0,
             0,
             0});
             this.tableTopWidth.Minimum = new decimal(new int[] {
-            600,
+            550,
             0,
             0,
             0});
@@ -226,7 +228,7 @@ namespace TablePlugin.Forms
             this.tableTopLength.Size = new System.Drawing.Size(84, 22);
             this.tableTopLength.TabIndex = 12;
             this.tableTopLength.Value = new decimal(new int[] {
-            1500,
+            550,
             0,
             0,
             0});
@@ -273,9 +275,9 @@ namespace TablePlugin.Forms
             this.label18.Location = new System.Drawing.Point(353, 128);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(67, 17);
+            this.label18.Size = new System.Drawing.Size(75, 17);
             this.label18.TabIndex = 22;
-            this.label18.Text = "40-60 мм";
+            this.label18.Text = "50-225 мм";
             // 
             // label17
             // 
@@ -284,16 +286,17 @@ namespace TablePlugin.Forms
             this.label17.Location = new System.Drawing.Point(353, 50);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 17);
+            this.label17.Size = new System.Drawing.Size(42, 17);
             this.label17.TabIndex = 21;
-            this.label17.Text = "4-5 шт.";
+            this.label17.Text = "4 шт.";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // tableLegsNumber
             // 
             this.tableLegsNumber.Location = new System.Drawing.Point(239, 48);
             this.tableLegsNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tableLegsNumber.Maximum = new decimal(new int[] {
-            5,
+            4,
             0,
             0,
             0});
@@ -320,19 +323,19 @@ namespace TablePlugin.Forms
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(83, 17);
             this.label14.TabIndex = 19;
-            this.label14.Text = "600-700 мм";
+            this.label14.Text = "400-600 мм";
             // 
             // SizeValue
             // 
             this.SizeValue.Location = new System.Drawing.Point(239, 126);
             this.SizeValue.Margin = new System.Windows.Forms.Padding(4);
             this.SizeValue.Maximum = new decimal(new int[] {
-            60,
+            225,
             0,
             0,
             0});
             this.SizeValue.Minimum = new decimal(new int[] {
-            40,
+            50,
             0,
             0,
             0});
@@ -340,7 +343,7 @@ namespace TablePlugin.Forms
             this.SizeValue.Size = new System.Drawing.Size(107, 22);
             this.SizeValue.TabIndex = 16;
             this.SizeValue.Value = new decimal(new int[] {
-            50,
+            60,
             0,
             0,
             0});
@@ -350,12 +353,12 @@ namespace TablePlugin.Forms
             this.tableLegsHeight.Location = new System.Drawing.Point(16, 46);
             this.tableLegsHeight.Margin = new System.Windows.Forms.Padding(4);
             this.tableLegsHeight.Maximum = new decimal(new int[] {
-            700,
+            600,
             0,
             0,
             0});
             this.tableLegsHeight.Minimum = new decimal(new int[] {
-            600,
+            400,
             0,
             0,
             0});
@@ -363,7 +366,7 @@ namespace TablePlugin.Forms
             this.tableLegsHeight.Size = new System.Drawing.Size(116, 22);
             this.tableLegsHeight.TabIndex = 14;
             this.tableLegsHeight.Value = new decimal(new int[] {
-            650,
+            500,
             0,
             0,
             0});
@@ -467,6 +470,7 @@ namespace TablePlugin.Forms
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TableForm";
             this.Text = "TablePlugin";
+            this.Load += new System.EventHandler(this.TableForm_Load);
             this.topGroupBox.ResumeLayout(false);
             this.topGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopHeight)).EndInit();

@@ -78,11 +78,13 @@ namespace TablePlugin.BLL
             var doc2D = (ksDocument2D)sketchDef.BeginEdit();
 
             // Координаты цетров ножек.
-            var x = _parameters.TabLegs.Number != 5 ? new double[4] : new double[5];
-            var y = _parameters.TabLegs.Number != 5 ? new double[4] : new double[5];
+ // было          var x = _parameters.TabLegs.Number == 4 ? new double[4] : new double[4];
+ // было          var y = _parameters.TabLegs.Number == 4 ? new double[4] : new double[4];
+            var x = new double[4];
+            var y = new double[4];
 
             // Создание примитива основания ножек по параметрам.
-            if (_parameters.TabLegs.Type == LegsType.RoundLegs)
+/*           if (_parameters.TabLegs.Type == LegsType.SquareLegs)
             {
                 x[0] = 20 + (_parameters.TabLegs.Value / 2);
                 y[0] = 20 + (_parameters.TabLegs.Value / 2);
@@ -109,8 +111,8 @@ namespace TablePlugin.BLL
                 }
             }
             else
-            {
-                x[0] = 20;
+           {
+*/                x[0] = 20;
                 y[0] = 20;
 
                 x[1] = 20;
@@ -122,12 +124,12 @@ namespace TablePlugin.BLL
                 x[3] = _parameters.TableTop.Length - 20 - _parameters.TabLegs.Value ;
                 y[3] = 20;
 
-                if (x.Length == 5)
+/*                if (x.Length == 5)
                 {
                     x[4] = (_parameters.TableTop.Length / 2) - (_parameters.TabLegs.Value / 2);
                     y[4] = (_parameters.TableTop.Width / 2) - (_parameters.TabLegs.Value / 2);
                 }
-
+*/
                 // Создание квадратов основания ножек.
                 for (var i = 0; i < x.Length; i++)
                 {
@@ -140,7 +142,7 @@ namespace TablePlugin.BLL
                     rectangleParam.style = 1;
                     doc2D.ksRectangle(rectangleParam);
                 }
-            }
+ //           }
 
             // Конец редактирования эскиза.
             sketchDef.EndEdit();

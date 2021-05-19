@@ -29,25 +29,31 @@ namespace TablePlugin.BLL.Models
         {
             _additionalParameters = new Dictionary<ParametersType, AdditionalParameters>
             {
+    //min max параметров
+    //1000 => 550; 2000 => 900 длина столешницы
+    //600 => 550; 800 => 900 ширина столешницы
+    //30 => 50; 40 => 80 высота столешницы
+    //600 => 400; 700 => 600 высота ножки
+    //40 => 50; 60 => 450 длина и ширина
                 {
                     ParametersType.TableTopLength, 
-                    new AdditionalParameters { Min = 1000, Max = 2000, Name = "Длина столешницы" }
+                    new AdditionalParameters { Min = 550, Max = 900, Name = "Длина столешницы" }
                 },
                 {
                     ParametersType.TableTopWidth, 
-                    new AdditionalParameters { Min = 600, Max = 800, Name = "Ширина столешницы" }
+                    new AdditionalParameters { Min = 550, Max = 900, Name = "Ширина столешницы" }
                 },
                 {
                     ParametersType.TableTopHeight, 
-                    new AdditionalParameters { Min = 30, Max = 40, Name = "Высота столешницы" }
+                    new AdditionalParameters { Min = 50, Max = 80, Name = "Высота столешницы" }
                 },
                 {
                     ParametersType.TableLegsHeight, 
-                    new AdditionalParameters { Min = 600, Max = 700, Name = "Высота ножек" }
+                    new AdditionalParameters { Min = 400, Max = 600, Name = "Высота ножек" }
                 },
                 {
                     ParametersType.TableLegsNumber, 
-                    new AdditionalParameters { Min = 4, Max = 5, Name = "Количество ножек" }
+                    new AdditionalParameters { Min = 4, Max = 4, Name = "Количество ножек" }
                 },
                 {
                     ParametersType.TableLegsDiameter, 
@@ -55,7 +61,7 @@ namespace TablePlugin.BLL.Models
                 },
                 {
                     ParametersType.TableLegsSideLength,
-                    new AdditionalParameters { Min = 40, Max = 60, Name = "Длина основания ножек" }
+                    new AdditionalParameters { Min = 50, Max = 225, Name = "Длина основания ножек" }
                 },
             };
         }
@@ -87,12 +93,12 @@ namespace TablePlugin.BLL.Models
             get => _tableLegs;
             set
             {
-                if (Math.Abs(_tableTop.Length - 2000d) < 0.001)
+                if (Math.Abs(_tableTop.Length - 900d) < 0.001)
                 {
                     var number = _additionalParameters
                         .FirstOrDefault(x => x.Key == ParametersType.TableLegsNumber)
                         .Value;
-                    number.Min = 5;
+                    number.Min = 4;
                 }
                
                 var container = new Dictionary<ParametersType, double>
@@ -100,7 +106,7 @@ namespace TablePlugin.BLL.Models
                     {ParametersType.TableLegsHeight, value.Height},
                     {ParametersType.TableLegsNumber, value.Number},
                     {
-                        value.Type == LegsType.RoundLegs
+                        value.Type == LegsType.SquareLegs
                             ? ParametersType.TableLegsDiameter
                             : ParametersType.TableLegsSideLength,
                         value.Value
@@ -128,15 +134,15 @@ namespace TablePlugin.BLL.Models
                 var param = _additionalParameters
                     .FirstOrDefault(x => x.Key == keyValue.Key)
                     .Value;
-                
-                if (keyValue.Value < param.Min || keyValue.Value > param.Max)
+
+                if ((keyValue.Value < param.Min) || (keyValue.Value > param.Max))
                 {
                     throw new ArgumentException(
                         $"Значение '{param.Name}' должно быть в диапозоне от {param.Min} до {param.Max}.");
                 }
-            } 
+            }
         }
-
+        
         /// <summary>
         /// Проверка на пересечение диапозона.
         /// </summary>

@@ -65,7 +65,6 @@ namespace TablePlugin.UnitTests
             }
         }
 
-
         /// <summary>
         /// Тест на присваивание неправильных значений в поля структуры TableTopParameters. Негативный тест. 
         /// </summary>
@@ -86,9 +85,9 @@ namespace TablePlugin.UnitTests
             Assert.Throws<ArgumentException>(() =>
             {
                 // Act
-                parameters.Length = parameter == "Length" ? value : 1800;
+                parameters.Length = parameter == "Length" ? value : 700;
                 parameters.Width = parameter == "Width" ? value : 700;
-                parameters.Height = parameter == "Height" ? value : 40;
+                parameters.Height = parameter == "Height" ? value : 60;
             }, $"Ошибка присвоения неправильного значения в TableTopParameters.{parameter}");
         }
 
@@ -111,9 +110,9 @@ namespace TablePlugin.UnitTests
             Assert.Throws<ArgumentException>(() =>
             {
                 // Act
-                parameters.Height = parameter == "Height" ? value : 650;
+                parameters.Height = parameter == "Height" ? value : 500;
                 parameters.Number = parameter == "Number" ? (int)value : 4;
-                parameters.Value = parameter == "Value" ? value : 50;
+                parameters.Value = parameter == "Value" ? value : 60;
             }, $"Ошибка присвоения неправильного значения в TableLegsParameters.{parameter}");
         }
 
@@ -137,19 +136,20 @@ namespace TablePlugin.UnitTests
             // Assert
             Assert.Throws<ArgumentException>(() =>
             {
+
                 // Act
                 parameters.TableTop = new TableTopParameters
                 {
-                    Length =  parameter == ParametersType.TableTopLength ? value : 1500,
+                    Length =  parameter == ParametersType.TableTopLength ? value : 700,
                     Width = parameter == ParametersType.TableTopWidth ? value : 700,
-                    Height = parameter == ParametersType.TableTopHeight ? value : 40,
+                    Height = parameter == ParametersType.TableTopHeight ? value : 60,
                 };
 
                 parameters.TabLegs = new TableLegsParameters
                 {
-                    Height = parameter == ParametersType.TableLegsHeight ? value : 650,
-                    Number = parameter == ParametersType.TableLegsNumber ?  (int) value : 4,
-                    Value = parameter == ParametersType.TableLegsDiameter ? value : 50,
+                    Height = parameter == ParametersType.TableLegsHeight ? value : 500,
+          //          Number = parameter == ParametersType.TableLegsNumber ?  (int) value : 4,
+                    Value = parameter == ParametersType.TableLegsDiameter ? value : 60,
                 };
             }, $"Значение '{addInfo.Name}' должно быть в диапозоне от {addInfo.Min} до {addInfo.Max}." );
         }
@@ -169,53 +169,21 @@ namespace TablePlugin.UnitTests
                 // Act
                 parameters.TableTop = new TableTopParameters
                 {
-                    Length = 2000,
+                    Length = 700,
                     Width = 700,
-                    Height = 40,
+                    Height = 60,
                 };
 
                 parameters.TabLegs = new TableLegsParameters
                 {
-                    Height = 650,
+                    Height = 500,
                     Number = 4,
-                    Value = 50,
+                    Value = 60,
                 };
                 
-            }, "Значение 'Количество ножек' должно быть в диапозоне от 5 до 5." );
+            }, "Значение 'Количество ножек' должно быть равно 4" );
         }
-/*
-        /// <summary>
-        /// Тест на вырезание отверстия в недопустимом диапозоне. Негативный тест.
-        /// </summary>
-        /// <param name="value">Присваиваемое значение.</param>
-        /// <param name="parameter">Параметр.</param>
-        /// <param name="name">Имя поля.</param>
-        /// <param name="range">Диапозон.</param>
-        [TestCase(1000, ParametersType.HoleParamX, "Расстояние по длине", new[] { 935, 1065 })]
-        [TestCase(350, ParametersType.HoleParamY, "Расстояние по ширине", new[] { 285, 415 })]
-        public void TableParameters_WrongCoordinates_ThrowsExceptionResult(double value, ParametersType parameter, string name, int[] range)
-        {
-            // SetUp
-            var parameters = new TableParameters
-            {
-                TableTop = new TableTopParameters { Length = 2000, Width = 700, Height = 40, },
-                TabLegs = new TableLegsParameters { Height = 650, Number = 5, Value = 50, }
-            };
 
-            // Assert
-            Assert.Throws<ArgumentException>(() =>
-            {
-                // Act
-                parameters.TableHole = new TableHoleParameters
-                {
-                    Radius = 20,
-                    ParamX = parameter == ParametersType.HoleParamX ? value : 1200,
-                    ParamY = parameter == ParametersType.HoleParamY ? value : 250,
-                };
-
-            }, $"Значение '{name}' не должно пересекать диапозоне от {range[0]} до {range[1]}.");
-        }
-*/
         /// <summary>
         /// Метод для заполнение параметров объект класса TableParameters.
         /// </summary>
@@ -224,17 +192,17 @@ namespace TablePlugin.UnitTests
         {
             parameters.TableTop = new TableTopParameters
             {
-                Length = 1500,
+                Length = 700,
                 Width = 700,
-                Height = 35,
+                Height = 60,
             };
 
             parameters.TabLegs = new TableLegsParameters
             {
-                Height = 650,
+                Height = 500,
                 Number = 4,
-                Type = LegsType.RoundLegs,
-                Value = 50
+                Type = LegsType.SquareLegs,
+                Value = 60
             };
         }
     }

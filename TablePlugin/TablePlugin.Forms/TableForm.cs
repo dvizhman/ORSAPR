@@ -44,7 +44,8 @@ namespace TablePlugin.Forms
                 {
                     Height = (double) tableLegsHeight.Value,
                     Number = (int) tableLegsNumber.Value,
-                    Type = LegsTypeComboBox.SelectedIndex == 0 ? LegsType.RoundLegs : LegsType.SquareLegs,
+ //                   Type = LegsTypeComboBox.SelectedIndex == 0 ? LegsType.RoundLegs : LegsType.SquareLegs,
+                    Type = LegsType.SquareLegs,
                     Value = (double) SizeValue.Value
                 };
 
@@ -62,15 +63,15 @@ namespace TablePlugin.Forms
         /// </summary>
         private void LegsTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (LegsTypeComboBox.SelectedIndex)
-            {
-                case 0:
-                    NameOfSize.Text = "Диаметр основания";
-                    break;
-                case 1:
+//            switch (LegsTypeComboBox.SelectedIndex)
+//            {
+//                case 0:
+//                   NameOfSize.Text = "Диаметр основания";
+//                    break;
+//                case 1:
                     NameOfSize.Text = "Длина стороны основания";
-                    break;
-            }
+//                    break;
+//            }
         }
 
         /// <summary>
@@ -94,13 +95,13 @@ namespace TablePlugin.Forms
         /// </summary>
         private void DefaultButton_Click(object sender, EventArgs e)
         {
-            tableTopLength.Value = 1500m;
+            tableTopLength.Value = 700m;
             tableTopWidth.Value = 700m;
-            tableTopHeight.Value = 35m;
+            tableTopHeight.Value = 60m;
 
-            tableLegsHeight.Value = 650m;
+            tableLegsHeight.Value = 500m;
             tableLegsNumber.Value = 4m;
-            SizeValue.Value = 50m;
+            SizeValue.Value = 60m;
         }
 
         /// <summary>
@@ -146,6 +147,26 @@ namespace TablePlugin.Forms
                     .Where(x => x.Key == ParametersType.TableLegsSideLength)
                     .Select(expression)
                     .FirstOrDefault();
+        }
+
+        private void TableForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

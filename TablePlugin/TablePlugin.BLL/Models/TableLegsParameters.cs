@@ -42,7 +42,7 @@ namespace TablePlugin.BLL.Models
         /// Тип ножек.
         /// </summary>
         public LegsType Type { get; set; }
-
+ 
         /// <summary>
         /// Значние размера основания ножек.
         /// </summary>
@@ -53,7 +53,7 @@ namespace TablePlugin.BLL.Models
             {
                 ValidateValue(value, "Размер основания");
                 _value = Math.Truncate(value);
-            } 
+            }
         }
 
         /// <summary>
