@@ -70,9 +70,9 @@ namespace TablePlugin.UnitTests
         /// </summary>
         /// <param name="value">Присваиваемое значение.</param>
         /// <param name="parameter">В какой параметр будет присваиваться значение.</param>
-        [TestCase(1800.05d, "Length", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(700.05d, "Length", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
         [TestCase(700.05d, "Width", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
-        [TestCase(40.05d, "Height", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(60.05d, "Height", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
         [TestCase(-1, "Length", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
         [TestCase(-1, "Width", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
         [TestCase(-1, "Height", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
@@ -148,7 +148,6 @@ namespace TablePlugin.UnitTests
                 parameters.TabLegs = new TableLegsParameters
                 {
                     Height = parameter == ParametersType.TableLegsHeight ? value : 500,
-          //          Number = parameter == ParametersType.TableLegsNumber ?  (int) value : 4,
                     Value = parameter == ParametersType.TableLegsDiameter ? value : 60,
                 };
             }, $"Значение '{addInfo.Name}' должно быть в диапозоне от {addInfo.Min} до {addInfo.Max}." );

@@ -16,7 +16,7 @@ namespace TablePlugin.BLL.Models
         private TableTopParameters _tableTop;
        
         /// <summary>
-        /// Параметры отверстия в столешнице.
+        /// Параметры ножек стола.
         /// </summary>
         private TableLegsParameters _tableLegs;
 
@@ -29,12 +29,7 @@ namespace TablePlugin.BLL.Models
         {
             _additionalParameters = new Dictionary<ParametersType, AdditionalParameters>
             {
-    //min max параметров
-    //1000 => 550; 2000 => 900 длина столешницы
-    //600 => 550; 800 => 900 ширина столешницы
-    //30 => 50; 40 => 80 высота столешницы
-    //600 => 400; 700 => 600 высота ножки
-    //40 => 50; 60 => 450 длина и ширина
+
                 {
                     ParametersType.TableTopLength, 
                     new AdditionalParameters { Min = 550, Max = 900, Name = "Длина столешницы" }
@@ -57,7 +52,7 @@ namespace TablePlugin.BLL.Models
                 },
                 {
                     ParametersType.TableLegsDiameter, 
-                    new AdditionalParameters { Min = 40, Max = 60, Name = "Диаметр основания ножек" }
+                    new AdditionalParameters { Min = 50, Max = 225, Name = "Диаметр основания ножек" }
                 },
                 {
                     ParametersType.TableLegsSideLength,

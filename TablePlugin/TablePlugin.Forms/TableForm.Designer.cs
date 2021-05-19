@@ -165,7 +165,12 @@ namespace TablePlugin.Forms
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // tableTopHeight
-            // 
+            //
+            this.tableTopHeight.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.tableTopHeight.Location = new System.Drawing.Point(444, 47);
             this.tableTopHeight.Margin = new System.Windows.Forms.Padding(4);
             this.tableTopHeight.Maximum = new decimal(new int[] {
@@ -189,6 +194,11 @@ namespace TablePlugin.Forms
             // 
             // tableTopWidth
             // 
+            this.tableTopWidth.Increment = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
             this.tableTopWidth.Location = new System.Drawing.Point(236, 49);
             this.tableTopWidth.Margin = new System.Windows.Forms.Padding(4);
             this.tableTopWidth.Maximum = new decimal(new int[] {
@@ -213,14 +223,19 @@ namespace TablePlugin.Forms
             // tableTopLength
             // 
             this.tableTopLength.Increment = new decimal(new int[] {
-            100,
+            50,
             0,
             0,
             0});
             this.tableTopLength.Location = new System.Drawing.Point(17, 49);
             this.tableTopLength.Margin = new System.Windows.Forms.Padding(4);
             this.tableTopLength.Maximum = new decimal(new int[] {
-            100000,
+            900,
+            0,
+            0,
+            0});
+            this.tableTopLength.Minimum = new decimal(new int[] {
+            550,
             0,
             0,
             0});
@@ -228,7 +243,7 @@ namespace TablePlugin.Forms
             this.tableTopLength.Size = new System.Drawing.Size(84, 22);
             this.tableTopLength.TabIndex = 12;
             this.tableTopLength.Value = new decimal(new int[] {
-            550,
+            700,
             0,
             0,
             0});
@@ -258,9 +273,7 @@ namespace TablePlugin.Forms
             // LegsTypeComboBox
             // 
             this.LegsTypeComboBox.FormattingEnabled = true;
-            this.LegsTypeComboBox.Items.AddRange(new object[] {
-            "Круглые",
-            "Квадратные"});
+            this.LegsTypeComboBox.Items.AddRange(new object[] {"Квадратные"});
             this.LegsTypeComboBox.Location = new System.Drawing.Point(16, 127);
             this.LegsTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.LegsTypeComboBox.Name = "LegsTypeComboBox";
@@ -326,7 +339,12 @@ namespace TablePlugin.Forms
             this.label14.Text = "400-600 мм";
             // 
             // SizeValue
-            // 
+            //
+            this.SizeValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.SizeValue.Location = new System.Drawing.Point(239, 126);
             this.SizeValue.Margin = new System.Windows.Forms.Padding(4);
             this.SizeValue.Maximum = new decimal(new int[] {
@@ -350,6 +368,11 @@ namespace TablePlugin.Forms
             // 
             // tableLegsHeight
             // 
+            this.tableLegsHeight.Increment = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             this.tableLegsHeight.Location = new System.Drawing.Point(16, 46);
             this.tableLegsHeight.Margin = new System.Windows.Forms.Padding(4);
             this.tableLegsHeight.Maximum = new decimal(new int[] {

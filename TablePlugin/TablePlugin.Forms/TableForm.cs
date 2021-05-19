@@ -44,7 +44,6 @@ namespace TablePlugin.Forms
                 {
                     Height = (double) tableLegsHeight.Value,
                     Number = (int) tableLegsNumber.Value,
- //                   Type = LegsTypeComboBox.SelectedIndex == 0 ? LegsType.RoundLegs : LegsType.SquareLegs,
                     Type = LegsType.SquareLegs,
                     Value = (double) SizeValue.Value
                 };
@@ -63,15 +62,7 @@ namespace TablePlugin.Forms
         /// </summary>
         private void LegsTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-//            switch (LegsTypeComboBox.SelectedIndex)
-//            {
-//                case 0:
-//                   NameOfSize.Text = "Диаметр основания";
-//                    break;
-//                case 1:
-                    NameOfSize.Text = "Длина стороны основания";
-//                    break;
-//            }
+            NameOfSize.Text = "Длина стороны основания";
         }
 
         /// <summary>
