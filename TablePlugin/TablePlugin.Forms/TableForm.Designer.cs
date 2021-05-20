@@ -52,10 +52,6 @@ namespace TablePlugin.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.SetMinButton = new System.Windows.Forms.Button();
-            this.SetMaxButton = new System.Windows.Forms.Button();
-            this.buttonGroupBox = new System.Windows.Forms.GroupBox();
-            this.DefaultButton = new System.Windows.Forms.Button();
             this.topGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopWidth)).BeginInit();
@@ -64,24 +60,23 @@ namespace TablePlugin.Forms
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SizeValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsHeight)).BeginInit();
-            this.buttonGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // BuildButton
             // 
-            this.BuildButton.Location = new System.Drawing.Point(246, 328);
+            this.BuildButton.Location = new System.Drawing.Point(166, 346);
             this.BuildButton.Margin = new System.Windows.Forms.Padding(4);
             this.BuildButton.Name = "BuildButton";
-            this.BuildButton.Size = new System.Drawing.Size(200, 60);
+            this.BuildButton.Size = new System.Drawing.Size(170, 60);
             this.BuildButton.TabIndex = 0;
-            this.BuildButton.Text = "Построить 3D модель";
+            this.BuildButton.Text = "Построить";
             this.BuildButton.UseVisualStyleBackColor = true;
             this.BuildButton.Click += new System.EventHandler(this.BuildButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Location = new System.Drawing.Point(270, 39);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 17);
@@ -91,17 +86,18 @@ namespace TablePlugin.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 30);
+            this.label2.Location = new System.Drawing.Point(270, 72);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ширина";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(441, 27);
+            this.label3.Location = new System.Drawing.Point(270, 102);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 17);
@@ -124,16 +120,17 @@ namespace TablePlugin.Forms
             this.topGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.topGroupBox.Name = "topGroupBox";
             this.topGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.topGroupBox.Size = new System.Drawing.Size(655, 109);
+            this.topGroupBox.Size = new System.Drawing.Size(459, 142);
             this.topGroupBox.TabIndex = 12;
             this.topGroupBox.TabStop = false;
-            this.topGroupBox.Text = "Столешница";
+            this.topGroupBox.Text = "Параметры столешницы";
+            this.topGroupBox.Enter += new System.EventHandler(this.topGroupBox_Enter);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(537, 49);
+            this.label13.Location = new System.Drawing.Point(109, 102);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(67, 17);
@@ -145,7 +142,7 @@ namespace TablePlugin.Forms
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.DimGray;
-            this.label12.Location = new System.Drawing.Point(329, 49);
+            this.label12.Location = new System.Drawing.Point(110, 72);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 17);
@@ -156,7 +153,7 @@ namespace TablePlugin.Forms
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(109, 54);
+            this.label11.Location = new System.Drawing.Point(109, 42);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 17);
@@ -165,13 +162,13 @@ namespace TablePlugin.Forms
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // tableTopHeight
-            //
+            // 
             this.tableTopHeight.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.tableTopHeight.Location = new System.Drawing.Point(444, 47);
+            this.tableTopHeight.Location = new System.Drawing.Point(17, 97);
             this.tableTopHeight.Margin = new System.Windows.Forms.Padding(4);
             this.tableTopHeight.Maximum = new decimal(new int[] {
             80,
@@ -199,7 +196,7 @@ namespace TablePlugin.Forms
             0,
             0,
             0});
-            this.tableTopWidth.Location = new System.Drawing.Point(236, 49);
+            this.tableTopWidth.Location = new System.Drawing.Point(17, 67);
             this.tableTopWidth.Margin = new System.Windows.Forms.Padding(4);
             this.tableTopWidth.Maximum = new decimal(new int[] {
             900,
@@ -227,7 +224,7 @@ namespace TablePlugin.Forms
             0,
             0,
             0});
-            this.tableTopLength.Location = new System.Drawing.Point(17, 49);
+            this.tableTopLength.Location = new System.Drawing.Point(17, 37);
             this.tableTopLength.Margin = new System.Windows.Forms.Padding(4);
             this.tableTopLength.Maximum = new decimal(new int[] {
             900,
@@ -261,20 +258,21 @@ namespace TablePlugin.Forms
             this.ledsGroupBox.Controls.Add(this.label8);
             this.ledsGroupBox.Controls.Add(this.label7);
             this.ledsGroupBox.Controls.Add(this.label6);
-            this.ledsGroupBox.Location = new System.Drawing.Point(15, 132);
+            this.ledsGroupBox.Location = new System.Drawing.Point(15, 165);
             this.ledsGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.ledsGroupBox.Name = "ledsGroupBox";
             this.ledsGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.ledsGroupBox.Size = new System.Drawing.Size(431, 175);
+            this.ledsGroupBox.Size = new System.Drawing.Size(459, 167);
             this.ledsGroupBox.TabIndex = 13;
             this.ledsGroupBox.TabStop = false;
-            this.ledsGroupBox.Text = "Ножки";
+            this.ledsGroupBox.Text = "Параметры ножки";
             // 
             // LegsTypeComboBox
             // 
             this.LegsTypeComboBox.FormattingEnabled = true;
-            this.LegsTypeComboBox.Items.AddRange(new object[] {"Квадратные"});
-            this.LegsTypeComboBox.Location = new System.Drawing.Point(16, 127);
+            this.LegsTypeComboBox.Items.AddRange(new object[] {
+            "Квадратные"});
+            this.LegsTypeComboBox.Location = new System.Drawing.Point(17, 124);
             this.LegsTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.LegsTypeComboBox.Name = "LegsTypeComboBox";
             this.LegsTypeComboBox.Size = new System.Drawing.Size(115, 24);
@@ -285,7 +283,7 @@ namespace TablePlugin.Forms
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.DimGray;
-            this.label18.Location = new System.Drawing.Point(353, 128);
+            this.label18.Location = new System.Drawing.Point(110, 69);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(75, 17);
@@ -296,7 +294,7 @@ namespace TablePlugin.Forms
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(353, 50);
+            this.label17.Location = new System.Drawing.Point(110, 99);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(42, 17);
@@ -306,7 +304,7 @@ namespace TablePlugin.Forms
             // 
             // tableLegsNumber
             // 
-            this.tableLegsNumber.Location = new System.Drawing.Point(239, 48);
+            this.tableLegsNumber.Location = new System.Drawing.Point(17, 94);
             this.tableLegsNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tableLegsNumber.Maximum = new decimal(new int[] {
             4,
@@ -319,7 +317,7 @@ namespace TablePlugin.Forms
             0,
             0});
             this.tableLegsNumber.Name = "tableLegsNumber";
-            this.tableLegsNumber.Size = new System.Drawing.Size(107, 22);
+            this.tableLegsNumber.Size = new System.Drawing.Size(85, 22);
             this.tableLegsNumber.TabIndex = 20;
             this.tableLegsNumber.Value = new decimal(new int[] {
             4,
@@ -331,7 +329,7 @@ namespace TablePlugin.Forms
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.DimGray;
-            this.label14.Location = new System.Drawing.Point(140, 50);
+            this.label14.Location = new System.Drawing.Point(109, 39);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(83, 17);
@@ -339,13 +337,13 @@ namespace TablePlugin.Forms
             this.label14.Text = "400-600 мм";
             // 
             // SizeValue
-            //
+            // 
             this.SizeValue.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.SizeValue.Location = new System.Drawing.Point(239, 126);
+            this.SizeValue.Location = new System.Drawing.Point(17, 64);
             this.SizeValue.Margin = new System.Windows.Forms.Padding(4);
             this.SizeValue.Maximum = new decimal(new int[] {
             225,
@@ -358,7 +356,7 @@ namespace TablePlugin.Forms
             0,
             0});
             this.SizeValue.Name = "SizeValue";
-            this.SizeValue.Size = new System.Drawing.Size(107, 22);
+            this.SizeValue.Size = new System.Drawing.Size(86, 22);
             this.SizeValue.TabIndex = 16;
             this.SizeValue.Value = new decimal(new int[] {
             60,
@@ -373,7 +371,7 @@ namespace TablePlugin.Forms
             0,
             0,
             0});
-            this.tableLegsHeight.Location = new System.Drawing.Point(16, 46);
+            this.tableLegsHeight.Location = new System.Drawing.Point(17, 34);
             this.tableLegsHeight.Margin = new System.Windows.Forms.Padding(4);
             this.tableLegsHeight.Maximum = new decimal(new int[] {
             600,
@@ -386,7 +384,7 @@ namespace TablePlugin.Forms
             0,
             0});
             this.tableLegsHeight.Name = "tableLegsHeight";
-            this.tableLegsHeight.Size = new System.Drawing.Size(116, 22);
+            this.tableLegsHeight.Size = new System.Drawing.Size(84, 22);
             this.tableLegsHeight.TabIndex = 14;
             this.tableLegsHeight.Value = new decimal(new int[] {
             500,
@@ -397,7 +395,7 @@ namespace TablePlugin.Forms
             // NameOfSize
             // 
             this.NameOfSize.AutoSize = true;
-            this.NameOfSize.Location = new System.Drawing.Point(235, 106);
+            this.NameOfSize.Location = new System.Drawing.Point(270, 131);
             this.NameOfSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NameOfSize.Name = "NameOfSize";
             this.NameOfSize.Size = new System.Drawing.Size(141, 17);
@@ -407,7 +405,7 @@ namespace TablePlugin.Forms
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 102);
+            this.label8.Location = new System.Drawing.Point(270, 99);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 17);
@@ -417,7 +415,7 @@ namespace TablePlugin.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(235, 26);
+            this.label7.Location = new System.Drawing.Point(270, 69);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(130, 17);
@@ -427,72 +425,24 @@ namespace TablePlugin.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 26);
+            this.label6.Location = new System.Drawing.Point(270, 39);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 17);
             this.label6.TabIndex = 4;
             this.label6.Text = "Длина ножек";
             // 
-            // SetMinButton
-            // 
-            this.SetMinButton.Location = new System.Drawing.Point(15, 75);
-            this.SetMinButton.Margin = new System.Windows.Forms.Padding(4);
-            this.SetMinButton.Name = "SetMinButton";
-            this.SetMinButton.Size = new System.Drawing.Size(179, 39);
-            this.SetMinButton.TabIndex = 14;
-            this.SetMinButton.Text = "Минимумы";
-            this.SetMinButton.UseVisualStyleBackColor = true;
-            this.SetMinButton.Click += new System.EventHandler(this.SetMinButton_Click);
-            // 
-            // SetMaxButton
-            // 
-            this.SetMaxButton.Location = new System.Drawing.Point(15, 126);
-            this.SetMaxButton.Margin = new System.Windows.Forms.Padding(4);
-            this.SetMaxButton.Name = "SetMaxButton";
-            this.SetMaxButton.Size = new System.Drawing.Size(179, 39);
-            this.SetMaxButton.TabIndex = 15;
-            this.SetMaxButton.Text = "Максимумы";
-            this.SetMaxButton.UseVisualStyleBackColor = true;
-            this.SetMaxButton.Click += new System.EventHandler(this.SetMaxButton_Click);
-            // 
-            // buttonGroupBox
-            // 
-            this.buttonGroupBox.Controls.Add(this.DefaultButton);
-            this.buttonGroupBox.Controls.Add(this.SetMinButton);
-            this.buttonGroupBox.Controls.Add(this.SetMaxButton);
-            this.buttonGroupBox.Location = new System.Drawing.Point(461, 132);
-            this.buttonGroupBox.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonGroupBox.Name = "buttonGroupBox";
-            this.buttonGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.buttonGroupBox.Size = new System.Drawing.Size(209, 175);
-            this.buttonGroupBox.TabIndex = 16;
-            this.buttonGroupBox.TabStop = false;
-            this.buttonGroupBox.Text = "Параметры по умолчанию";
-            // 
-            // DefaultButton
-            // 
-            this.DefaultButton.Location = new System.Drawing.Point(15, 25);
-            this.DefaultButton.Margin = new System.Windows.Forms.Padding(4);
-            this.DefaultButton.Name = "DefaultButton";
-            this.DefaultButton.Size = new System.Drawing.Size(179, 39);
-            this.DefaultButton.TabIndex = 16;
-            this.DefaultButton.Text = "По умолчанию";
-            this.DefaultButton.UseVisualStyleBackColor = true;
-            this.DefaultButton.Click += new System.EventHandler(this.DefaultButton_Click);
-            // 
             // TableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 410);
-            this.Controls.Add(this.buttonGroupBox);
+            this.ClientSize = new System.Drawing.Size(489, 426);
             this.Controls.Add(this.ledsGroupBox);
             this.Controls.Add(this.topGroupBox);
             this.Controls.Add(this.BuildButton);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TableForm";
-            this.Text = "TablePlugin";
+            this.Text = "Плагин журнального стола";
             this.Load += new System.EventHandler(this.TableForm_Load);
             this.topGroupBox.ResumeLayout(false);
             this.topGroupBox.PerformLayout();
@@ -504,7 +454,6 @@ namespace TablePlugin.Forms
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SizeValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsHeight)).EndInit();
-            this.buttonGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,11 +483,7 @@ namespace TablePlugin.Forms
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown SizeValue;
         private System.Windows.Forms.NumericUpDown tableLegsHeight;
-        private System.Windows.Forms.Button SetMinButton;
-        private System.Windows.Forms.Button SetMaxButton;
         private System.Windows.Forms.ComboBox LegsTypeComboBox;
-        private System.Windows.Forms.GroupBox buttonGroupBox;
-        private System.Windows.Forms.Button DefaultButton;
     }
 }
 
