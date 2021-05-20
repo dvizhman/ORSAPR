@@ -22,7 +22,6 @@ namespace TablePlugin.Forms
         public TableForm()
         {
             InitializeComponent();
-            LegsTypeComboBox.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -43,9 +42,9 @@ namespace TablePlugin.Forms
                 parameters.TabLegs = new TableLegsParameters
                 {
                     Height = (double) tableLegsHeight.Value,
-                    Number = (int) tableLegsNumber.Value,
-                    Type = LegsType.SquareLegs,
-                    Value = (double) SizeValue.Value
+                    Length = (double) tableLegsLength.Value,
+                    Width = (double) tableLegsWidth.Value,
+//                    Value = (double) tableLegsLength.Value
                 };
 
                 _builder = _builder ?? new TableBuilder();
@@ -55,14 +54,6 @@ namespace TablePlugin.Forms
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        /// <summary>
-        /// Обработчик комбобокса "Тип ножек"
-        /// </summary>
-        private void LegsTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            NameOfSize.Text = "Длина стороны основания";
         }
 
         /// <summary>
@@ -91,8 +82,8 @@ namespace TablePlugin.Forms
             tableTopHeight.Value = 60m;
 
             tableLegsHeight.Value = 500m;
-            tableLegsNumber.Value = 4m;
-            SizeValue.Value = 60m;
+            tableLegsLength.Value = 60m;
+            tableLegsWidth.Value = 60m;
         }
 
         /// <summary>
@@ -124,20 +115,6 @@ namespace TablePlugin.Forms
                 .Select(expression)
                 .FirstOrDefault();
             
-            tableLegsNumber.Value = (decimal) limits
-                .Where(x => x.Key == ParametersType.TableLegsNumber)
-                .Select(expression)
-                .FirstOrDefault();
-            
-            SizeValue.Value = LegsTypeComboBox.SelectedIndex == 0
-                ? (decimal) limits
-                    .Where(x => x.Key == ParametersType.TableLegsDiameter)
-                    .Select(expression)
-                    .FirstOrDefault()
-                : (decimal)limits
-                    .Where(x => x.Key == ParametersType.TableLegsSideLength)
-                    .Select(expression)
-                    .FirstOrDefault();
         }
 
         private void TableForm_Load(object sender, EventArgs e)
@@ -166,6 +143,16 @@ namespace TablePlugin.Forms
         }
 
         private void topGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLegsWidth_ValueChanged(object sender, EventArgs e)
         {
 
         }

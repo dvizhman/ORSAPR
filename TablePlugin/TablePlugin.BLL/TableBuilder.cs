@@ -28,14 +28,8 @@ namespace TablePlugin.BLL
         public void Build(TableParameters parameters)
         {
             _parameters = parameters;
-            if (_connector == null)
-            {
-                _connector = new KompasConnector();
-            }
-            else
-            {
-                _connector.GetNewPart();
-            }
+            _connector = new KompasConnector();
+            _connector.GetNewPart();
 
             CreateTopTable();
             CreateTableLegs();
@@ -85,12 +79,12 @@ namespace TablePlugin.BLL
             y[0] = 0;
 
             x[1] = 0;
-            y[1] = _parameters.TableTop.Width - _parameters.TabLegs.Value;
+            y[1] = _parameters.TableTop.Width - _parameters.TabLegs.Length;
 
-            x[2] = _parameters.TableTop.Length - _parameters.TabLegs.Value;
-            y[2] = _parameters.TableTop.Width - _parameters.TabLegs.Value;
-
-            x[3] = _parameters.TableTop.Length - _parameters.TabLegs.Value ;
+            x[2] = _parameters.TableTop.Length - _parameters.TabLegs.Width;
+            y[2] = _parameters.TableTop.Width - _parameters.TabLegs.Length;
+            
+            x[3] = _parameters.TableTop.Length - _parameters.TabLegs.Width;
             y[3] = 0;
 
 
@@ -101,8 +95,8 @@ namespace TablePlugin.BLL
                     rectangleParam.x = x[i];
                     rectangleParam.y = y[i];
                     rectangleParam.ang = 0;
-                    rectangleParam.height = _parameters.TabLegs.Value;
-                    rectangleParam.width = _parameters.TabLegs.Value;
+                    rectangleParam.height = _parameters.TabLegs.Length;
+                    rectangleParam.width = _parameters.TabLegs.Width;
                     rectangleParam.style = 1;
                     doc2D.ksRectangle(rectangleParam);
                 }

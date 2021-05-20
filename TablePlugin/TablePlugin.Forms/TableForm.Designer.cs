@@ -41,25 +41,23 @@ namespace TablePlugin.Forms
             this.tableTopWidth = new System.Windows.Forms.NumericUpDown();
             this.tableTopLength = new System.Windows.Forms.NumericUpDown();
             this.ledsGroupBox = new System.Windows.Forms.GroupBox();
-            this.LegsTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.tableLegsNumber = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
-            this.SizeValue = new System.Windows.Forms.NumericUpDown();
+            this.tableLegsLength = new System.Windows.Forms.NumericUpDown();
             this.tableLegsHeight = new System.Windows.Forms.NumericUpDown();
-            this.NameOfSize = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tableLegsWidth = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.topGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableTopLength)).BeginInit();
             this.ledsGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableLegsNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SizeValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableLegsLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableLegsWidth)).BeginInit();
             this.SuspendLayout();
             // 
             // BuildButton
@@ -247,15 +245,13 @@ namespace TablePlugin.Forms
             // 
             // ledsGroupBox
             // 
-            this.ledsGroupBox.Controls.Add(this.LegsTypeComboBox);
+            this.ledsGroupBox.Controls.Add(this.label4);
+            this.ledsGroupBox.Controls.Add(this.tableLegsWidth);
+            this.ledsGroupBox.Controls.Add(this.label5);
             this.ledsGroupBox.Controls.Add(this.label18);
-            this.ledsGroupBox.Controls.Add(this.label17);
-            this.ledsGroupBox.Controls.Add(this.tableLegsNumber);
             this.ledsGroupBox.Controls.Add(this.label14);
-            this.ledsGroupBox.Controls.Add(this.SizeValue);
+            this.ledsGroupBox.Controls.Add(this.tableLegsLength);
             this.ledsGroupBox.Controls.Add(this.tableLegsHeight);
-            this.ledsGroupBox.Controls.Add(this.NameOfSize);
-            this.ledsGroupBox.Controls.Add(this.label8);
             this.ledsGroupBox.Controls.Add(this.label7);
             this.ledsGroupBox.Controls.Add(this.label6);
             this.ledsGroupBox.Location = new System.Drawing.Point(15, 165);
@@ -266,18 +262,6 @@ namespace TablePlugin.Forms
             this.ledsGroupBox.TabIndex = 13;
             this.ledsGroupBox.TabStop = false;
             this.ledsGroupBox.Text = "Параметры ножки";
-            // 
-            // LegsTypeComboBox
-            // 
-            this.LegsTypeComboBox.FormattingEnabled = true;
-            this.LegsTypeComboBox.Items.AddRange(new object[] {
-            "Квадратные"});
-            this.LegsTypeComboBox.Location = new System.Drawing.Point(17, 124);
-            this.LegsTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
-            this.LegsTypeComboBox.Name = "LegsTypeComboBox";
-            this.LegsTypeComboBox.Size = new System.Drawing.Size(115, 24);
-            this.LegsTypeComboBox.TabIndex = 23;
-            this.LegsTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.LegsTypeComboBox_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -290,41 +274,6 @@ namespace TablePlugin.Forms
             this.label18.TabIndex = 22;
             this.label18.Text = "50-225 мм";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(110, 99);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(42, 17);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "4 шт.";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
-            // 
-            // tableLegsNumber
-            // 
-            this.tableLegsNumber.Location = new System.Drawing.Point(17, 94);
-            this.tableLegsNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLegsNumber.Maximum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            this.tableLegsNumber.Minimum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            this.tableLegsNumber.Name = "tableLegsNumber";
-            this.tableLegsNumber.Size = new System.Drawing.Size(85, 22);
-            this.tableLegsNumber.TabIndex = 20;
-            this.tableLegsNumber.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -336,29 +285,29 @@ namespace TablePlugin.Forms
             this.label14.TabIndex = 19;
             this.label14.Text = "400-600 мм";
             // 
-            // SizeValue
+            // tableLegsLength
             // 
-            this.SizeValue.Increment = new decimal(new int[] {
+            this.tableLegsLength.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.SizeValue.Location = new System.Drawing.Point(17, 64);
-            this.SizeValue.Margin = new System.Windows.Forms.Padding(4);
-            this.SizeValue.Maximum = new decimal(new int[] {
+            this.tableLegsLength.Location = new System.Drawing.Point(17, 64);
+            this.tableLegsLength.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLegsLength.Maximum = new decimal(new int[] {
             225,
             0,
             0,
             0});
-            this.SizeValue.Minimum = new decimal(new int[] {
+            this.tableLegsLength.Minimum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.SizeValue.Name = "SizeValue";
-            this.SizeValue.Size = new System.Drawing.Size(86, 22);
-            this.SizeValue.TabIndex = 16;
-            this.SizeValue.Value = new decimal(new int[] {
+            this.tableLegsLength.Name = "tableLegsLength";
+            this.tableLegsLength.Size = new System.Drawing.Size(86, 22);
+            this.tableLegsLength.TabIndex = 16;
+            this.tableLegsLength.Value = new decimal(new int[] {
             60,
             0,
             0,
@@ -392,35 +341,16 @@ namespace TablePlugin.Forms
             0,
             0});
             // 
-            // NameOfSize
-            // 
-            this.NameOfSize.AutoSize = true;
-            this.NameOfSize.Location = new System.Drawing.Point(270, 131);
-            this.NameOfSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.NameOfSize.Name = "NameOfSize";
-            this.NameOfSize.Size = new System.Drawing.Size(141, 17);
-            this.NameOfSize.TabIndex = 11;
-            this.NameOfSize.Text = "Диаметр основания";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(270, 99);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 17);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Тип ножек";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(270, 69);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 17);
+            this.label7.Size = new System.Drawing.Size(169, 17);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Количество ножек";
+            this.label7.Text = "Длина основания ножек";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -428,9 +358,59 @@ namespace TablePlugin.Forms
             this.label6.Location = new System.Drawing.Point(270, 39);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 17);
+            this.label6.Size = new System.Drawing.Size(101, 17);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Длина ножек";
+            this.label6.Text = "Высота ножек";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(110, 99);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 17);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "50-225 мм";
+            // 
+            // tableLegsWidth
+            // 
+            this.tableLegsWidth.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.tableLegsWidth.Location = new System.Drawing.Point(17, 94);
+            this.tableLegsWidth.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLegsWidth.Maximum = new decimal(new int[] {
+            225,
+            0,
+            0,
+            0});
+            this.tableLegsWidth.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.tableLegsWidth.Name = "tableLegsWidth";
+            this.tableLegsWidth.Size = new System.Drawing.Size(86, 22);
+            this.tableLegsWidth.TabIndex = 24;
+            this.tableLegsWidth.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.tableLegsWidth.ValueChanged += new System.EventHandler(this.tableLegsWidth_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(270, 99);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(177, 17);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Ширина основания ножек";
             // 
             // TableForm
             // 
@@ -451,9 +431,9 @@ namespace TablePlugin.Forms
             ((System.ComponentModel.ISupportInitialize)(this.tableTopLength)).EndInit();
             this.ledsGroupBox.ResumeLayout(false);
             this.ledsGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableLegsNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SizeValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableLegsLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableLegsHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableLegsWidth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,8 +449,6 @@ namespace TablePlugin.Forms
         private System.Windows.Forms.GroupBox ledsGroupBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label NameOfSize;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -478,12 +456,12 @@ namespace TablePlugin.Forms
         private System.Windows.Forms.NumericUpDown tableTopWidth;
         private System.Windows.Forms.NumericUpDown tableTopLength;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.NumericUpDown tableLegsNumber;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.NumericUpDown SizeValue;
+        private System.Windows.Forms.NumericUpDown tableLegsLength;
         private System.Windows.Forms.NumericUpDown tableLegsHeight;
-        private System.Windows.Forms.ComboBox LegsTypeComboBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown tableLegsWidth;
+        private System.Windows.Forms.Label label5;
     }
 }
 

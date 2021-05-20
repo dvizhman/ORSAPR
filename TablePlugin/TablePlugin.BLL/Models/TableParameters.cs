@@ -46,17 +46,14 @@ namespace TablePlugin.BLL.Models
                     ParametersType.TableLegsHeight, 
                     new AdditionalParameters { Min = 400, Max = 600, Name = "Высота ножек" }
                 },
+
                 {
-                    ParametersType.TableLegsNumber, 
-                    new AdditionalParameters { Min = 4, Max = 4, Name = "Количество ножек" }
-                },
-                {
-                    ParametersType.TableLegsDiameter, 
-                    new AdditionalParameters { Min = 50, Max = 225, Name = "Диаметр основания ножек" }
-                },
-                {
-                    ParametersType.TableLegsSideLength,
+                    ParametersType.TableLegsLength,
                     new AdditionalParameters { Min = 50, Max = 225, Name = "Длина основания ножек" }
+                },
+                {
+                    ParametersType.TableLegsWidth,
+                    new AdditionalParameters { Min = 50, Max = 225, Name = "Ширина основания ножек" }
                 },
             };
         }
@@ -88,24 +85,24 @@ namespace TablePlugin.BLL.Models
             get => _tableLegs;
             set
             {
-                if (Math.Abs(_tableTop.Length - 900d) < 0.001)
-                {
-                    var number = _additionalParameters
-                        .FirstOrDefault(x => x.Key == ParametersType.TableLegsNumber)
+                
+                    var lenght = _additionalParameters
+                        .FirstOrDefault(x => x.Key == ParametersType.TableLegsLength)
                         .Value;
-                    number.Min = 4;
-                }
+                    lenght.Max = _tableTop.Length / 4;
+
+                    var width = _additionalParameters
+                        .FirstOrDefault(x => x.Key == ParametersType.TableLegsWidth)
+                        .Value;
+                    lenght.Max = _tableTop.Width / 4;
+                
                
                 var container = new Dictionary<ParametersType, double>
                 {
                     {ParametersType.TableLegsHeight, value.Height},
-                    {ParametersType.TableLegsNumber, value.Number},
-                    {
-                        value.Type == LegsType.SquareLegs
-                            ? ParametersType.TableLegsDiameter
-                            : ParametersType.TableLegsSideLength,
-                        value.Value
-                    }
+                    {ParametersType.TableLegsLength, value.Length},
+                    {ParametersType.TableLegsWidth, value.Width},
+ 
                 };
 
                 CheckRangeOfValues(container);

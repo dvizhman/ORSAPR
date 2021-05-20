@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\LegsType.cs" />
     <Compile Include="Enums\ParametersType.cs" />
     <Compile Include="KompasConnector.cs" />
     <Compile Include="Models\AdditionalParameters.cs" />

@@ -96,8 +96,9 @@ namespace TablePlugin.UnitTests
         /// </summary>
         /// <param name="value">Присваиваемое значение.</param>
         /// <param name="parameter">В какой параметр будет присваиваться значение.</param>
-        [TestCase(650.05d, "Height", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
-        [TestCase(50.05d, "Value", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(700.05d, "Height", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(60.05d, "Length", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(60.05d, "Width", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
         [TestCase(-1, "Height", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
         [TestCase(-1, "Number", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
         [TestCase(-1, "Value", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
@@ -110,9 +111,9 @@ namespace TablePlugin.UnitTests
             Assert.Throws<ArgumentException>(() =>
             {
                 // Act
+                parameters.Length = parameter == "Length" ? value : 60;
+                parameters.Width = parameter == "Width" ? value : 60;
                 parameters.Height = parameter == "Height" ? value : 500;
-                parameters.Number = parameter == "Number" ? (int)value : 4;
-                parameters.Value = parameter == "Value" ? value : 60;
             }, $"Ошибка присвоения неправильного значения в TableLegsParameters.{parameter}");
         }
 
@@ -125,8 +126,6 @@ namespace TablePlugin.UnitTests
         [TestCase(500, ParametersType.TableTopWidth, TestName = "Тестирование присваивания {0} в TableParameters.TableTop.{1}. Негативный тест.")]
         [TestCase(20, ParametersType.TableTopHeight, TestName = "Тестирование присваивания {0} в TableParameters.TableTop.{1}. Негативный тест.")]
         [TestCase(500, ParametersType.TableLegsHeight, TestName = "Тестирование присваивания {0} в TableParameters.TableLegs.{1}. Негативный тест.")]
-        [TestCase(3, ParametersType.TableLegsNumber, TestName = "Тестирование присваивания {0} в TableParameters.TableLegs.{1}. Негативный тест.")]
-        [TestCase(30, ParametersType.TableLegsDiameter, TestName = "Тестирование присваивания {0} в TableParameters.TableLegs.{1}. Негативный тест.")]
         public void TableParameters_WrongArgument_ThrowsExceptionResult(double value,  ParametersType parameter)
         {
             // SetUp
@@ -147,8 +146,9 @@ namespace TablePlugin.UnitTests
 
                 parameters.TabLegs = new TableLegsParameters
                 {
+                    Length = parameter == ParametersType.TableLegsLength ? value : 60,
+                    Width = parameter == ParametersType.TableLegsWidth ? value : 60,
                     Height = parameter == ParametersType.TableLegsHeight ? value : 500,
-                    Value = parameter == ParametersType.TableLegsDiameter ? value : 60,
                 };
             }, $"Значение '{addInfo.Name}' должно быть в диапозоне от {addInfo.Min} до {addInfo.Max}." );
         }
@@ -176,8 +176,8 @@ namespace TablePlugin.UnitTests
                 parameters.TabLegs = new TableLegsParameters
                 {
                     Height = 500,
-                    Number = 4,
-                    Value = 60,
+                    Length = 60,
+                    Width = 60,
                 };
                 
             }, "Значение 'Количество ножек' должно быть равно 4" );
@@ -198,10 +198,9 @@ namespace TablePlugin.UnitTests
 
             parameters.TabLegs = new TableLegsParameters
             {
+                Length = 60,
+                Width = 60,
                 Height = 500,
-                Number = 4,
-                Type = LegsType.SquareLegs,
-                Value = 60
             };
         }
     }

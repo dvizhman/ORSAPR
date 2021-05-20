@@ -8,8 +8,9 @@ namespace TablePlugin.BLL.Models
     /// </summary>
     public struct TableLegsParameters
     {
-        private int _number;
         private double _height;
+        private double _length;
+        private double _width;
         private double _value;
 
         /// <summary>
@@ -26,23 +27,32 @@ namespace TablePlugin.BLL.Models
         }
 
         /// <summary>
-        /// Количество ножек.
+        /// Длина ножек.
         /// </summary>
-        public int Number
+        public double Length
         {
-            get => _number;
+            get => _length;
             set
             {
-                ValidateValue(value, "Количество ножек");
-                _number = value;
+                ValidateValue(value, "Длина ножек");
+                _length = Math.Truncate(value);
             }
         }
 
         /// <summary>
-        /// Тип ножек.
+        /// Ширина ножек.
         /// </summary>
-        public LegsType Type { get; set; }
- 
+        public double Width
+        {
+            get => _width;
+            set
+            {
+                ValidateValue(value, "Ширина ножек");
+                _width = Math.Truncate(value);
+            }
+        }
+
+
         /// <summary>
         /// Значние размера основания ножек.
         /// </summary>
