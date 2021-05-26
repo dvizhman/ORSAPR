@@ -65,17 +65,20 @@ namespace TablePlugin.UnitTests
             }
         }
 
-        /// <summary>
-        /// Тест на присваивание неправильных значений в поля структуры TableTopParameters. Негативный тест. 
-        /// </summary>
         /// <param name="value">Присваиваемое значение.</param>
         /// <param name="parameter">В какой параметр будет присваиваться значение.</param>
-        [TestCase(700.05d, "Length", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
-        [TestCase(700.05d, "Width", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
-        [TestCase(60.05d, "Height", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
-        [TestCase(-1, "Length", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
-        [TestCase(-1, "Width", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
-        [TestCase(-1, "Height", TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(700.05d, "Length", 
+            TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(700.05d, "Width", 
+            TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(60.05d, "Height", 
+            TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(-1, "Length", 
+            TestName = "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(-1, "Width", TestName = 
+            "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
+        [TestCase(-1, "Height", TestName = 
+            "Тестирование присваивания {0} в TableTopParameters.{1}. Негативный тест.")]
         public void TableTopParameters_WrongArgument_ThrowsExceptionResult(double value, string parameter)
         {
             // SetUp

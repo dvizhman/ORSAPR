@@ -44,7 +44,6 @@ namespace TablePlugin.Forms
                     Height = (double) tableLegsHeight.Value,
                     Length = (double) tableLegsLength.Value,
                     Width = (double) tableLegsWidth.Value,
-//                    Value = (double) tableLegsLength.Value
                 };
 
                 _builder = _builder ?? new TableBuilder();
@@ -54,22 +53,6 @@ namespace TablePlugin.Forms
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        /// <summary>
-        /// Обработчик кнопки "Минимумы".
-        /// </summary>
-        private void SetMinButton_Click(object sender, EventArgs e)
-        {
-            SetMinMaxParameters(x => x.Value.Min);
-        }
-
-        /// <summary>
-        /// Обработчик кнопки "Максимумы".
-        /// </summary>
-        private void SetMaxButton_Click(object sender, EventArgs e)
-        {
-            SetMinMaxParameters(x => x.Value.Max);
         }
 
         /// <summary>
@@ -84,77 +67,6 @@ namespace TablePlugin.Forms
             tableLegsHeight.Value = 500m;
             tableLegsLength.Value = 60m;
             tableLegsWidth.Value = 60m;
-        }
-
-        /// <summary>
-        /// Метод для установки значений минимума и максимума для полей формы.
-        /// </summary>
-        /// <param name="expression">Лямбда-выражение.</param>
-        private void SetMinMaxParameters(Func<KeyValuePair<ParametersType, AdditionalParameters>, double> expression)
-        {
-            var parameters = new TableParameters();
-            var limits = parameters.AdditionalParameters;
-
-            tableTopLength.Value = (decimal)limits
-                .Where(x => x.Key == ParametersType.TableTopLength)
-                .Select(expression)
-                .FirstOrDefault();
-
-            tableTopWidth.Value = (decimal) limits
-                .Where(x => x.Key == ParametersType.TableTopWidth)
-                .Select(expression)
-                .FirstOrDefault();
-            
-            tableTopHeight.Value = (decimal) limits
-                .Where(x => x.Key == ParametersType.TableTopHeight)
-                .Select(expression)
-                .FirstOrDefault();
-
-            tableLegsHeight.Value = (decimal) limits
-                .Where(x => x.Key == ParametersType.TableLegsHeight)
-                .Select(expression)
-                .FirstOrDefault();
-            
-        }
-
-        private void TableForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void topGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLegsWidth_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

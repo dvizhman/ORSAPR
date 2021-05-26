@@ -75,28 +75,29 @@ namespace TablePlugin.BLL
             var x = new double[4];
             var y = new double[4];
 
-            x[0] = 0;
-            y[0] = 0;
+                       x[0] = 0;
+                       y[0] = 0;
 
-            x[1] = 0;
-            y[1] = _parameters.TableTop.Width - _parameters.TabLegs.Length;
+                       x[1] = 0;
+                       y[1] = _parameters.TableTop.Width - _parameters.TabLegs.Width;
 
-            x[2] = _parameters.TableTop.Length - _parameters.TabLegs.Width;
-            y[2] = _parameters.TableTop.Width - _parameters.TabLegs.Length;
-            
-            x[3] = _parameters.TableTop.Length - _parameters.TabLegs.Width;
-            y[3] = 0;
+                       x[2] = _parameters.TableTop.Length - _parameters.TabLegs.Length;
+                       y[2] = _parameters.TableTop.Width - _parameters.TabLegs.Width;
+
+                       x[3] = _parameters.TableTop.Length - _parameters.TabLegs.Length;
+                       y[3] = 0;
 
 
-                // Создание квадратов основания ножек.
-                for (var i = 0; i < x.Length; i++)
+
+            // Создание квадратов основания ножек.
+            for (var i = 0; i < x.Length; i++)
                 {
                     var rectangleParam = (ksRectangleParam)_connector.KsObject.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
                     rectangleParam.x = x[i];
                     rectangleParam.y = y[i];
                     rectangleParam.ang = 0;
-                    rectangleParam.height = _parameters.TabLegs.Length;
-                    rectangleParam.width = _parameters.TabLegs.Width;
+                    rectangleParam.height = _parameters.TabLegs.Width;
+                    rectangleParam.width = _parameters.TabLegs.Length;
                     rectangleParam.style = 1;
                     doc2D.ksRectangle(rectangleParam);
                 }

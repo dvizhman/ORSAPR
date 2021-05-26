@@ -11,7 +11,6 @@ namespace TablePlugin.BLL.Models
         private double _height;
         private double _length;
         private double _width;
-        private double _value;
 
         /// <summary>
         /// Высота ножек.
@@ -52,19 +51,6 @@ namespace TablePlugin.BLL.Models
             }
         }
 
-
-        /// <summary>
-        /// Значние размера основания ножек.
-        /// </summary>
-        public double Value
-        {
-            get => _value;
-            set
-            {
-                ValidateValue(value, "Размер основания");
-                _value = Math.Truncate(value);
-            }
-        }
 
         /// <summary>
         /// Проверка присваиваемого значения на double.

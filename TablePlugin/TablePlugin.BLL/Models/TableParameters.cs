@@ -94,8 +94,7 @@ namespace TablePlugin.BLL.Models
                     var width = _additionalParameters
                         .FirstOrDefault(x => x.Key == ParametersType.TableLegsWidth)
                         .Value;
-                    lenght.Max = _tableTop.Width / 4;
-                
+                    width.Max = _tableTop.Width / 4;
                
                 var container = new Dictionary<ParametersType, double>
                 {
