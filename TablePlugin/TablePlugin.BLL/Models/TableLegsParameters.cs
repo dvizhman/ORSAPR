@@ -59,6 +59,7 @@ namespace TablePlugin.BLL.Models
         /// <param name="name">Имя параметра.</param>
         private static void ValidateValue(double value, string name)
         {
+            //TODO: Duplication
             //if (double.IsNaN(value) || double.IsInfinity(value))
             //{
             //    throw new ArgumentException("Значение не является числом типа double");

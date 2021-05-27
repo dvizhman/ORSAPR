@@ -25,6 +25,7 @@ namespace TablePlugin.BLL.Models
         /// </summary>
         private readonly Dictionary<ParametersType, AdditionalParameters> _additionalParameters;
 
+        //TODO: XML комментарии?
         public TableParameters()
         {
             _additionalParameters = new Dictionary<ParametersType, AdditionalParameters>

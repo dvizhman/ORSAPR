@@ -57,7 +57,7 @@ namespace TablePlugin.BLL.Models
         /// <param name="name">Имя параметра.</param>
         private static void ValidateValue(double value, string name)
         {
-
+            //TODO: Duplication
             if (Math.Abs(value - Math.Truncate(value)) > 0.001d)
             {
                 throw new ArgumentException($"Значение поля '{name}' не может быть дробным");
