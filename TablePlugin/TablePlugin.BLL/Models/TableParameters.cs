@@ -133,21 +133,5 @@ namespace TablePlugin.BLL.Models
                 }
             }
         }
-        
-        /// <summary>
-        /// Проверка на пересечение диапозона.
-        /// </summary>
-        /// <param name="left">Левое ограничение координат.</param>
-        /// <param name="right">Правое ограничение координат.</param>
-        /// <param name="param">Значение координат.</param>
-        /// <param name="name">Имя првоверяемого поля.</param>
-        private static void CheckCrossingOfRange(double left, double right, double param, string name)
-        {
-            if (left < param && param < right)
-            {
-                throw new ArgumentException(
-                    $"Значение '{name}' не должно пересекать диапозоне от {left} до {right}.");
-            }
-        }
     }
 }

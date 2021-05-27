@@ -45,7 +45,8 @@ namespace TablePlugin.BLL
             var doc2D = (ksDocument2D)sketchDef.BeginEdit();
 
             // Создание прямоугольника.
-            var rectangleParam = (ksRectangleParam)_connector.KsObject.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
+            var rectangleParam = (ksRectangleParam)_connector.KsObject.GetParamStruct
+                ((short)StructType2DEnum.ko_RectangleParam);
             // Присваиваем параметры прямоугольнику.
             rectangleParam.x = 0;
             rectangleParam.y = 0;
@@ -92,7 +93,8 @@ namespace TablePlugin.BLL
             // Создание квадратов основания ножек.
             for (var i = 0; i < x.Length; i++)
                 {
-                    var rectangleParam = (ksRectangleParam)_connector.KsObject.GetParamStruct((short)StructType2DEnum.ko_RectangleParam);
+                    var rectangleParam = (ksRectangleParam)_connector.KsObject.GetParamStruct
+                    ((short)StructType2DEnum.ko_RectangleParam);
                     rectangleParam.x = x[i];
                     rectangleParam.y = y[i];
                     rectangleParam.ang = 0;
@@ -117,7 +119,8 @@ namespace TablePlugin.BLL
         /// <param name="height">Высота выдавливание.</param>
         /// <param name="type">Тип выдавливания.</param>
         /// <param name="side">Направление выдаливания.</param>
-        private void PressOutSketch(ksSketchDefinition sketchDef, double height, ksObj3dTypeEnum type = ksObj3dTypeEnum.o3d_bossExtrusion, bool side = true)
+        private void PressOutSketch(ksSketchDefinition sketchDef, double height, 
+            ksObj3dTypeEnum type = ksObj3dTypeEnum.o3d_bossExtrusion, bool side = true)
         {
             // Выдавливание по типу
             var extrusionEntity = (ksEntity)_connector.Part.NewEntity((short)type);
@@ -128,7 +131,8 @@ namespace TablePlugin.BLL
                 var extrusionDef = (ksBossExtrusionDefinition)extrusionEntity.GetDefinition();
                 // Параметры выдавливания.
                 extrusionDef.SetSideParam(side, (short)End_Type.etBlind, height);
-                extrusionDef.directionType = side ? (short)Direction_Type.dtNormal : (short)Direction_Type.dtReverse;
+                extrusionDef.directionType = side ? 
+                    (short)Direction_Type.dtNormal : (short)Direction_Type.dtReverse;
 
                 // эскиз операции выдавливания.
                 extrusionDef.SetSketch(sketchDef);
@@ -139,7 +143,8 @@ namespace TablePlugin.BLL
                 // параметры выдаливания.
                 extrusionDef.SetSideParam(side, (short)End_Type.etBlind, height);
                 // Тип направления.
-                extrusionDef.directionType = side ? (short)Direction_Type.dtNormal : (short)Direction_Type.dtReverse;
+                extrusionDef.directionType = side ? 
+                    (short)Direction_Type.dtNormal : (short)Direction_Type.dtReverse;
 
                 // эскиз операции вырезания по выдавливанию.
                 extrusionDef.SetSketch(sketchDef);
