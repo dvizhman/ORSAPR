@@ -414,6 +414,7 @@ namespace TablePlugin.Forms
             this.Controls.Add(this.ledsGroupBox);
             this.Controls.Add(this.topGroupBox);
             this.Controls.Add(this.BuildButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TableForm";
             this.Text = "Плагин журнального стола";
