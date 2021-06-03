@@ -1,9 +1,6 @@
 ﻿namespace TablePlugin.BLL.Enums
 {
     //TODO: XML комментарии?
-    /// <summary>
-    /// Тип перечисления "Enum", содержит в себе параметры стола.
-    /// </summary>
     public enum ParametersType
     {
         TableTopLength = 0,
