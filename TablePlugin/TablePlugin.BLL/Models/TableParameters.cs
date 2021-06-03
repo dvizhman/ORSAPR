@@ -25,7 +25,6 @@ namespace TablePlugin.BLL.Models
         /// </summary>
         private readonly Dictionary<ParametersType, AdditionalParameters> _additionalParameters;
 
-        //TODO: XML комментарии?
         /// <summary>
         /// Конструктор, который устанавливает начальные ограничения для параметров.
         /// </summary>
