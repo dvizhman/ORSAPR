@@ -33,6 +33,7 @@ namespace TablePlugin.BLL.Models
         {
             _additionalParameters = new Dictionary<ParametersType, AdditionalParameters>
             {
+
                 {
                     ParametersType.TableTopLength, 
                     new AdditionalParameters
@@ -175,7 +176,8 @@ namespace TablePlugin.BLL.Models
         /// <param name="name">Имя параметра.</param>
         public static void ValidateValue(double value, string name)
         {
-            if (Math.Abs(value - value) > 0.001d)
+
+            if (Math.Abs(value - Math.Truncate(value)) > 0.001d)
             {
                 throw new ArgumentException($"Значение поля '{name}' не может быть дробным");
             }

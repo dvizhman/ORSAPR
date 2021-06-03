@@ -11,6 +11,7 @@ namespace TablePlugin.BLL
     /// </summary>
     public class KompasConnector
     {
+
         /// <summary>
         /// Интерфейс API Компаc3D.
         /// </summary>

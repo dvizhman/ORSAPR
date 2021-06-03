@@ -1,6 +1,7 @@
 ﻿using Kompas6API5;
 using Kompas6Constants3D;
 using Kompas6Constants;
+using TablePlugin.BLL.Enums;
 using TablePlugin.BLL.Models;
 
 namespace TablePlugin.BLL
@@ -91,17 +92,17 @@ namespace TablePlugin.BLL
 
             // Создание квадратов основания ножек.
             for (var i = 0; i < x.Length; i++)
-            {
-                var rectangleParam = (ksRectangleParam)_connector.KsObject.GetParamStruct
-                ((short)StructType2DEnum.ko_RectangleParam);
-                rectangleParam.x = x[i];
-                rectangleParam.y = y[i];
-                rectangleParam.ang = 0;
-                rectangleParam.height = _parameters.TabLegs.Width;
-                rectangleParam.width = _parameters.TabLegs.Length;
-                rectangleParam.style = 1;
-                doc2D.ksRectangle(rectangleParam);
-            }
+                {
+                    var rectangleParam = (ksRectangleParam)_connector.KsObject.GetParamStruct
+                    ((short)StructType2DEnum.ko_RectangleParam);
+                    rectangleParam.x = x[i];
+                    rectangleParam.y = y[i];
+                    rectangleParam.ang = 0;
+                    rectangleParam.height = _parameters.TabLegs.Width;
+                    rectangleParam.width = _parameters.TabLegs.Length;
+                    rectangleParam.style = 1;
+                    doc2D.ksRectangle(rectangleParam);
+                }
 
             // Конец редактирования эскиза.
             sketchDef.EndEdit();

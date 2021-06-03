@@ -20,7 +20,7 @@ namespace TablePlugin.BLL.Models
             set
             {
                 TableParameters.ValidateValue(value, "Длина столешницы");
-                _length = value;
+                _length = Math.Truncate(value);
             }
         }
 
@@ -33,7 +33,7 @@ namespace TablePlugin.BLL.Models
             set
             {
                 TableParameters.ValidateValue(value, "Ширина столешницы");
-                _width = value;
+                _width = Math.Truncate(value);
             }
         }
 
@@ -46,7 +46,7 @@ namespace TablePlugin.BLL.Models
             set
             {
                 TableParameters.ValidateValue(value, "Высота столешницы");
-                _height = value;
+                _height = Math.Truncate(value);
             }
         }
     } 
