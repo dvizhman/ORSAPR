@@ -1,7 +1,4 @@
-﻿using System;
-using TablePlugin.BLL.Enums;
-
-namespace TablePlugin.BLL.Models
+﻿namespace TablePlugin.BLL.Models
 {
     /// <summary>
     /// Параметры ножек стола.
@@ -21,7 +18,7 @@ namespace TablePlugin.BLL.Models
             set
             {
                 TableParameters.ValidateValue(value, "Высота ножек");
-                _height = Math.Truncate(value);
+                _height = value;
             }
         }
 
@@ -34,7 +31,7 @@ namespace TablePlugin.BLL.Models
             set
             {
                 TableParameters.ValidateValue(value, "Длина ножек");
-                _length = Math.Truncate(value);
+                _length = value;
             }
         }
 
@@ -47,7 +44,7 @@ namespace TablePlugin.BLL.Models
             set
             {
                 TableParameters.ValidateValue(value, "Ширина ножек");
-                _width = Math.Truncate(value);
+                _width = value;
             }
         }
 
