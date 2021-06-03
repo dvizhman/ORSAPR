@@ -11,7 +11,6 @@ namespace TablePlugin.BLL
     /// </summary>
     public class KompasConnector
     {
-
         /// <summary>
         /// Интерфейс API Компаc3D.
         /// </summary>
@@ -34,7 +33,8 @@ namespace TablePlugin.BLL
             }
             catch (COMException)
             {
-                KsObject = (KompasObject)Activator.CreateInstance(Type.GetTypeFromProgID(progId));
+                KsObject = (KompasObject)Activator.
+                    CreateInstance(Type.GetTypeFromProgID(progId));
                 Thread.Sleep(50);
             }
 

@@ -26,35 +26,66 @@ namespace TablePlugin.BLL.Models
         private readonly Dictionary<ParametersType, AdditionalParameters> _additionalParameters;
 
         //TODO: XML комментарии?
+        /// <summary>
+        /// Конструктор, который устанавливает начальные ограничения для параметров.
+        /// </summary>
         public TableParameters()
         {
             _additionalParameters = new Dictionary<ParametersType, AdditionalParameters>
             {
-
                 {
                     ParametersType.TableTopLength, 
-                    new AdditionalParameters { Min = 550, Max = 900, Name = "Длина столешницы" }
+                    new AdditionalParameters
+                    {
+                        Min = 550,
+                        Max = 900, 
+                        Name = "Длина столешницы"
+                    }
                 },
                 {
                     ParametersType.TableTopWidth, 
-                    new AdditionalParameters { Min = 550, Max = 900, Name = "Ширина столешницы" }
+                    new AdditionalParameters
+                    {
+                        Min = 550, 
+                        Max = 900, 
+                        Name = "Ширина столешницы"
+                    }
                 },
                 {
                     ParametersType.TableTopHeight, 
-                    new AdditionalParameters { Min = 50, Max = 80, Name = "Высота столешницы" }
+                    new AdditionalParameters
+                    {
+                        Min = 50, 
+                        Max = 80, 
+                        Name = "Высота столешницы"
+                    }
                 },
                 {
                     ParametersType.TableLegsHeight, 
-                    new AdditionalParameters { Min = 400, Max = 600, Name = "Высота ножек" }
+                    new AdditionalParameters
+                    {
+                        Min = 400, 
+                        Max = 600, 
+                        Name = "Высота ножек"
+                    }
                 },
-
                 {
                     ParametersType.TableLegsLength,
-                    new AdditionalParameters { Min = 50, Max = 225, Name = "Длина основания ножек" }
+                    new AdditionalParameters
+                    {
+                        Min = 50, 
+                        Max = 225, 
+                        Name = "Длина основания ножек"
+                    }
                 },
                 {
                     ParametersType.TableLegsWidth,
-                    new AdditionalParameters { Min = 50, Max = 225, Name = "Ширина основания ножек" }
+                    new AdditionalParameters
+                    {
+                        Min = 50, 
+                        Max = 225, 
+                        Name = "Ширина основания ножек"
+                    }
                 },
             };
         }
@@ -113,13 +144,15 @@ namespace TablePlugin.BLL.Models
         /// <summary>
         /// Дополнительные параметры стола.
         /// </summary>
-        public Dictionary<ParametersType, AdditionalParameters> AdditionalParameters { get => _additionalParameters; }
+        public Dictionary<ParametersType, AdditionalParameters> 
+            AdditionalParameters { get => _additionalParameters; }
 
         /// <summary>
         /// Проверка на допустимый диапозон.
         /// </summary>
         /// <param name="container"></param>
-        private void CheckRangeOfValues(Dictionary<ParametersType, double> container)
+        private void CheckRangeOfValues
+            (Dictionary<ParametersType, double> container)
         {
             foreach (var keyValue in container)
             {
@@ -132,6 +165,24 @@ namespace TablePlugin.BLL.Models
                     throw new ArgumentException(
                         $"Значение '{param.Name}' должно быть в диапозоне от {param.Min} до {param.Max}.");
                 }
+            }
+        }
+
+        /// <summary>
+        /// Проверка присваиваемого значения на double.
+        /// </summary>
+        /// <param name="value">Присваиваемая переменная.</param>
+        /// <param name="name">Имя параметра.</param>
+        public static void ValidateValue(double value, string name)
+        {
+            if (Math.Abs(value - value) > 0.001d)
+            {
+                throw new ArgumentException($"Значение поля '{name}' не может быть дробным");
+            }
+
+            if (value <= 0)
+            {
+                throw new ArgumentException($"{name} не может быть меньше или равна нулю!");
             }
         }
     }
